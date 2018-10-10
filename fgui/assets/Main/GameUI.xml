@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n2_heeq" name="n2" src="gcz43" fileName="sprite/element/jinzi.png" xy="149,246"/>
+    <image id="n4_heeq" name="n4" src="gcz41" fileName="sprite/npc/npc.png" xy="238,1704"/>
+    <image id="n5_heeq" name="n5" src="gcz44" fileName="sprite/car/che_1.jpg" xy="236,1010">
+      <relation target="" sidePair="top-top,left-left"/>
+    </image>
+    <movieclip id="n7_heeq" name="n7" src="heeqm" fileName="movieclip/WuYa.jta" xy="345,420" pivot="0.5,0.5" scale="-1,1" playing="false"/>
+    <movieclip id="n6_heeq" name="n6" src="heeqm" fileName="movieclip/WuYa.jta" xy="660,1391" pivot="0.5,0.5" scale="-1,1"/>
+    <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="651,1348"/>
+  </displayList>
+  <transition name="t0" autoPlayRepeat="-1">
+    <item time="0" type="Scale" target="n6_heeq" value="-1,1"/>
+    <item time="0" type="Visible" target="n6_heeq" value="true"/>
+    <item time="0" type="Visible" target="n7_heeq" value="false"/>
+    <item time="0" type="XY" target="n6_heeq" tween="true" startValue="660,1390" endValue="345,420" duration="65" ease="Linear" yoyo="true"/>
+    <item time="65" type="Visible" target="n7_heeq" value="true"/>
+    <item time="65" type="Visible" target="n6_heeq" value="false"/>
+    <item time="78" type="Scale" target="n6_heeq" value="1,1"/>
+    <item time="78" type="Visible" target="n6_heeq" value="true"/>
+    <item time="78" type="Visible" target="n7_heeq" value="false"/>
+    <item time="78" type="XY" target="n6_heeq" tween="true" startValue="330.1,401.33" endValue="660,1390" duration="64" ease="Linear"/>
+    <item time="156" type="XY" target="n6_heeq" value="660,1390"/>
+  </transition>
+</component>

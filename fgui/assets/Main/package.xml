@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="43jwvuth" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="gcz40" name="GameUI.xml" path="/" exported="true"/>
+    <image id="gcz41" name="npc.png" path="/sprite/npc/"/>
+    <image id="gcz42" name="guangchang.png" path="/sprite/element/"/>
+    <image id="gcz43" name="jinzi.png" path="/sprite/element/"/>
+    <image id="gcz44" name="che_1.jpg" path="/sprite/car/"/>
+    <image id="gcz45" name="che_1.png" path="/sprite/car/"/>
+    <image id="gcz46" name="che_2.png" path="/sprite/car/"/>
+    <image id="gcz47" name="che_3.png" path="/sprite/car/"/>
+    <image id="gcz48" name="che_4.png" path="/sprite/car/"/>
+    <image id="gcz49" name="che_5.png" path="/sprite/car/"/>
+    <image id="gcz4a" name="che_6.png" path="/sprite/car/"/>
+    <image id="gcz4b" name="che_7.png" path="/sprite/car/"/>
+    <image id="gcz4c" name="che_8.png" path="/sprite/car/"/>
+    <image id="gcz4d" name="ditu.png" path="/sprite/bg/"/>
+    <image id="heeqe" name="wyd-1_01.png" path="/sprite/wy/"/>
+    <image id="heeqf" name="wyd-1_02.png" path="/sprite/wy/"/>
+    <image id="heeqg" name="wyd-1_03.png" path="/sprite/wy/"/>
+    <image id="heeqh" name="wyd-1_04.png" path="/sprite/wy/"/>
+    <image id="heeqi" name="wyd-1_05.png" path="/sprite/wy/"/>
+    <image id="heeqj" name="wyd-1_06.png" path="/sprite/wy/"/>
+    <image id="heeqk" name="wyd-1_07.png" path="/sprite/wy/"/>
+    <image id="heeql" name="wyd-1_08.png" path="/sprite/wy/"/>
+    <movieclip id="heeqm" name="WuYa.jta" path="/movieclip/"/>
+  </resources>
+  <publish name="Main" genCode="true"/>
+</packageDescription>
