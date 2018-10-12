@@ -97,13 +97,14 @@ namespace Games
             this.progressBar.y = this.loadText.y - 50;
             this.progressBar.sizeGrid = "2,2,2,2,1";
             this.progressBar.value = 0;
-            this.progressBar.changeHandler = new Handler(this, this.onChangedProgress);
+            this.progressBar.changeHandler = Handler.create(this, this.onChangedProgress, null, false);
             Laya.stage.addChild(this.progressBar);
 
             //加载游戏资源
             Laya.loader.load([
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
+                { url: "res/atlas/anima/che1.atlas" },
             ], Handler.create(this, this.onLoaded), Handler.create(this, this.onProgress, null, false));
         }
 
@@ -112,11 +113,6 @@ namespace Games
             console.log("changed" + value);
             this.loadText.text = "加载进度 " + Math.ceil(value * 100) + "%";
             this.loadText.x = Laya.stage.width - this.loadText.width >> 1;
-        }
-
-        onLoadProgressBarChanged(progress: number): void
-        {
-
         }
 
         private loadTween: laya.utils.Tween;

@@ -7,10 +7,11 @@ module Main {
 		public m_n0:fairygui.GImage;
 		public m_n2:fairygui.GImage;
 		public m_n4:fairygui.GImage;
-		public m_n5:fairygui.GImage;
 		public m_n7:fairygui.GMovieClip;
 		public m_n6:fairygui.GMovieClip;
+		public m_container:fairygui.GComponent;
 		public m_n3:fairygui.GImage;
+		public m_n10:fairygui.GGraph;
 		public m_t0:fairygui.Transition;
 
 		public static URL:string = "ui://43jwvuthgcz40";
@@ -29,10 +30,11 @@ module Main {
 			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
 			this.m_n2 = <fairygui.GImage><any>(this.getChildAt(1));
 			this.m_n4 = <fairygui.GImage><any>(this.getChildAt(2));
-			this.m_n5 = <fairygui.GImage><any>(this.getChildAt(3));
-			this.m_n7 = <fairygui.GMovieClip><any>(this.getChildAt(4));
-			this.m_n6 = <fairygui.GMovieClip><any>(this.getChildAt(5));
+			this.m_n7 = <fairygui.GMovieClip><any>(this.getChildAt(3));
+			this.m_n6 = <fairygui.GMovieClip><any>(this.getChildAt(4));
+			this.m_container = <fairygui.GComponent><any>(this.getChildAt(5));
 			this.m_n3 = <fairygui.GImage><any>(this.getChildAt(6));
+			this.m_n10 = <fairygui.GGraph><any>(this.getChildAt(7));
 			this.m_t0 = this.getTransitionAt(0);
 		}
 	}

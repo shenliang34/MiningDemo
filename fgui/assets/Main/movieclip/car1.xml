@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,480">
+  <controller name="c_dir" exported="true" pages="0,up,1,down,2,left_up,3,left_down,4,right_up,5,right_down,6,left,7,right" selected="3"/>
+  <displayList>
+    <movieclip id="n0_hxum" name="n0" src="hxum41" fileName="movieclip/car1_down_45.jta" xy="0,0">
+      <gearDisplay controller="c_dir" pages="5"/>
+    </movieclip>
+    <movieclip id="n1_hxum" name="n1" src="hxum43" fileName="movieclip/car1_right.jta" xy="0,0">
+      <gearDisplay controller="c_dir" pages="7"/>
+    </movieclip>
+    <movieclip id="n2_hxum" name="n2" src="hxum40" fileName="movieclip/car1_up_45.jta" xy="0,0">
+      <gearDisplay controller="c_dir" pages=""/>
+    </movieclip>
+    <image id="n3_hxum" name="n3" src="hxum3y" fileName="sprite/car/che/che_shang.png" xy="233,143">
+      <gearDisplay controller="c_dir" pages="0"/>
+    </image>
+    <image id="n4_hxum" name="n4" src="hxum3z" fileName="sprite/car/che/che_xia.png" xy="233,143">
+      <gearDisplay controller="c_dir" pages="1"/>
+    </image>
+  </displayList>
+</component>
