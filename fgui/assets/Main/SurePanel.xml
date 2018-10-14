@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="758,534" extention="Label">
+<component size="758,312" extention="Label">
   <displayList>
-    <image id="n0_ennx" name="n0" src="ennx4k" fileName="sprite/ui/line2.png" xy="2,3" size="753,534"/>
-    <component id="n1_ennx" name="close" src="ennx4s" fileName="CloseBtn.xml" xy="670,1"/>
-    <text id="n3_id72" name="title" xy="269,176" size="219,50" fontSize="40" color="#ffffff" bold="true" text="确认购买？"/>
-    <component id="n4_id72" name="buy" src="ennx4u" fileName="BuyBtn.xml" xy="277,335"/>
+    <image id="n0_ennx" name="n0" src="aiq551" fileName="sprite/ui/buybg.png" xy="2,3" size="758,312">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n3_id72" name="title" xy="273,70" pivot="0.5,0.5" size="211,50" fontSize="40" color="#ffffff" align="center" bold="true" text="确认购买？"/>
+    <component id="n4_id72" name="buy" src="aiq554" fileName="CommonBtn.xml" xy="158,194">
+      <Button icon="ui://43jwvuthaiq553"/>
+    </component>
+    <component id="n5_aiq5" name="close" src="aiq554" fileName="CommonBtn.xml" xy="396,188">
+      <Button icon="ui://43jwvuthaiq552"/>
+    </component>
   </displayList>
 </component>

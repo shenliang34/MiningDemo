@@ -4,6 +4,8 @@ module Main {
 
 	export class MainBinder{
 		public static bindAll():void {
+			fairygui.UIObjectFactory.setPackageItemExtension(UI_CommonBtn.URL, UI_CommonBtn);
+			fairygui.UIObjectFactory.setPackageItemExtension(UI_FlashEffect.URL, UI_FlashEffect);
 			fairygui.UIObjectFactory.setPackageItemExtension(UI_ShopWindow.URL, UI_ShopWindow);
 			fairygui.UIObjectFactory.setPackageItemExtension(UI_CloseBtn.URL, UI_CloseBtn);
 			fairygui.UIObjectFactory.setPackageItemExtension(UI_ShopItem.URL, UI_ShopItem);

@@ -5,7 +5,7 @@ module Main {
 	export class UI_BuyBtn extends fairygui.GButton {
 
 		public m_button:fairygui.Controller;
-		public m_n4:fairygui.GLoader;
+		public m_icon:fairygui.GLoader;
 
 		public static URL:string = "ui://43jwvuthennx4u";
 
@@ -21,7 +21,7 @@ module Main {
 			super.constructFromXML(xml);
 
 			this.m_button = this.getControllerAt(0);
-			this.m_n4 = <fairygui.GLoader><any>(this.getChildAt(0));
+			this.m_icon = <fairygui.GLoader><any>(this.getChildAt(0));
 		}
 	}
 }

@@ -138,11 +138,28 @@ module Games
 					user.gameWindow.updateGold();
 				}), 500);
 
+				user.curBagCarNum++;
+				this.updateEffectSmoke();
+
 				this.anima.stop();
 				setTimeout(() =>
 				{
+					user.curBagCarNum--;
+					this.updateEffectSmoke();
 					this.initPosList(this.index);
 				}, 5000);
+			}
+		}
+
+		private updateEffectSmoke()
+		{
+			if (user.curBagCarNum > 0)
+			{
+				user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
+			}
+			else
+			{
+				user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
 			}
 		}
 

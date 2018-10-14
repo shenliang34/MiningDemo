@@ -36,6 +36,7 @@ var Games;
             return _this;
         }
         GameWindow.prototype.constructFromXML = function (xml) {
+            var _this = this;
             _super.prototype.constructFromXML.call(this, xml);
             user.gameWindow = this;
             this.tips = [];
@@ -64,6 +65,31 @@ var Games;
             npcTip.autoSize = true;
             this.npc.addChild(npcTip);
             this.updateGold();
+            setInterval(function () {
+                _this.startFlash();
+            }, 5000);
+            this.startFlash();
+        };
+        GameWindow.prototype.startFlash = function () {
+            for (var index = 0; index < 3; index++) {
+                var random = Math.random();
+                if (random > 0.2) {
+                    this.timeOutFlash(index);
+                }
+            }
+        };
+        GameWindow.prototype.timeOutFlash = function (index) {
+            var _this = this;
+            setTimeout(function () {
+                var flash = Main.UI_FlashEffect.createInstance();
+                var gold = _this.getChild("gold" + (index + 1));
+                _this.addChild(flash);
+                flash.x = gold.x + gold.width * 0.8 * Math.random();
+                flash.y = gold.y + gold.height * 0.8 * Math.random();
+                flash.m_t0.play(Handler.create(null, function () {
+                    flash.removeFromParent();
+                }), 1);
+            }, Math.random() * 4 * 1000);
         };
         GameWindow.prototype.updateGold = function () {
             this.m_coin.text = user.gold + "";

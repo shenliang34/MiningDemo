@@ -5,9 +5,9 @@ module Main {
 	export class UI_SurePanel extends fairygui.GLabel {
 
 		public m_n0:fairygui.GImage;
-		public m_close:UI_CloseBtn;
 		public m_title:fairygui.GTextField;
-		public m_buy:UI_BuyBtn;
+		public m_buy:UI_CommonBtn;
+		public m_close:UI_CommonBtn;
 
 		public static URL:string = "ui://43jwvuthid7250";
 
@@ -23,9 +23,9 @@ module Main {
 			super.constructFromXML(xml);
 
 			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
-			this.m_close = <UI_CloseBtn><any>(this.getChildAt(1));
-			this.m_title = <fairygui.GTextField><any>(this.getChildAt(2));
-			this.m_buy = <UI_BuyBtn><any>(this.getChildAt(3));
+			this.m_title = <fairygui.GTextField><any>(this.getChildAt(1));
+			this.m_buy = <UI_CommonBtn><any>(this.getChildAt(2));
+			this.m_close = <UI_CommonBtn><any>(this.getChildAt(3));
 		}
 	}
 }

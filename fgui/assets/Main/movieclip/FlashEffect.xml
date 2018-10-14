@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="100,100" pivot="0.5,0.5">
+  <displayList>
+    <image id="n0_aiq5" name="n0" src="aiq556" fileName="sprite/effect/flash/shanguang.png" xy="7,7" pivot="0.5,0.5"/>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="Alpha" target="n0_aiq5" tween="true" startValue="0" endValue="1" duration="18"/>
+    <item time="0" type="Rotation" target="n0_aiq5" tween="true" startValue="0" endValue="30" duration="18"/>
+    <item time="18" type="Alpha" target="n0_aiq5" tween="true" startValue="1" endValue="0" duration="18"/>
+    <item time="18" type="Rotation" target="n0_aiq5" tween="true" startValue="30" endValue="0" duration="18"/>
+  </transition>
+</component>

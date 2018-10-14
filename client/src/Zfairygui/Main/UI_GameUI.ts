@@ -4,10 +4,11 @@ module Main {
 
 	export class UI_GameUI extends fairygui.GComponent {
 
+		public m_c_visible_mapyan:fairygui.Controller;
 		public m_n0:fairygui.GImage;
-		public m_n53:fairygui.GImage;
-		public m_n54:fairygui.GImage;
-		public m_n2:fairygui.GImage;
+		public m_gold1:fairygui.GImage;
+		public m_gold2:fairygui.GImage;
+		public m_gold3:fairygui.GImage;
 		public m_container:fairygui.GComponent;
 		public m_n3:fairygui.GImage;
 		public m_startPos:fairygui.GGraph;
@@ -33,6 +34,8 @@ module Main {
 		public m_startPos3:fairygui.GGraph;
 		public m_startPos4:fairygui.GGraph;
 		public m_startPos5:fairygui.GGraph;
+		public m_n65:fairygui.GMovieClip;
+		public m_n63:fairygui.GMovieClip;
 
 		public static URL:string = "ui://43jwvuthgcz40";
 
@@ -47,10 +50,11 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
+			this.m_c_visible_mapyan = this.getControllerAt(0);
 			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
-			this.m_n53 = <fairygui.GImage><any>(this.getChildAt(1));
-			this.m_n54 = <fairygui.GImage><any>(this.getChildAt(2));
-			this.m_n2 = <fairygui.GImage><any>(this.getChildAt(3));
+			this.m_gold1 = <fairygui.GImage><any>(this.getChildAt(1));
+			this.m_gold2 = <fairygui.GImage><any>(this.getChildAt(2));
+			this.m_gold3 = <fairygui.GImage><any>(this.getChildAt(3));
 			this.m_container = <fairygui.GComponent><any>(this.getChildAt(4));
 			this.m_n3 = <fairygui.GImage><any>(this.getChildAt(5));
 			this.m_startPos = <fairygui.GGraph><any>(this.getChildAt(6));
@@ -76,6 +80,8 @@ module Main {
 			this.m_startPos3 = <fairygui.GGraph><any>(this.getChildAt(26));
 			this.m_startPos4 = <fairygui.GGraph><any>(this.getChildAt(27));
 			this.m_startPos5 = <fairygui.GGraph><any>(this.getChildAt(28));
+			this.m_n65 = <fairygui.GMovieClip><any>(this.getChildAt(29));
+			this.m_n63 = <fairygui.GMovieClip><any>(this.getChildAt(30));
 		}
 	}
 }

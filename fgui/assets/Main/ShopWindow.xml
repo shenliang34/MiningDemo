@@ -13,7 +13,7 @@
       <gearDisplay controller="c_show_sure" pages="1"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n4_id72" name="sure" src="id7250" fileName="SurePanel.xml" xy="158,693" pivot="0.5,0.5">
+    <component id="n4_id72" name="sure" src="id7250" fileName="SurePanel.xml" xy="161,693" pivot="0.5,0.5">
       <gearDisplay controller="c_show_sure" pages="1"/>
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>

@@ -69,6 +69,38 @@ namespace Games
             npcTip.autoSize = true;
             this.npc.addChild(npcTip);
             this.updateGold();
+            setInterval(() =>
+            {
+                this.startFlash();
+            }, 5000);
+            this.startFlash();
+        }
+
+        private startFlash(): void
+        {
+            for (var index = 0; index < 3; index++)
+            {
+                let random: number = Math.random();
+                if (random > 0.2)
+                {
+                    this.timeOutFlash(index);
+                }
+            }
+        }
+        private timeOutFlash(index: number): void
+        {
+            setTimeout(() =>
+            {
+                let flash = Main.UI_FlashEffect.createInstance();
+                let gold = this.getChild("gold" + (index + 1));
+                this.addChild(flash);
+                flash.x = gold.x + gold.width * 0.8 * Math.random();
+                flash.y = gold.y + gold.height * 0.8 * Math.random();
+                flash.m_t0.play(Handler.create(null, () =>
+                {
+                    flash.removeFromParent();
+                }), 1);
+            }, Math.random() * 4 * 1000);
         }
 
         public updateGold(): void
@@ -116,7 +148,7 @@ namespace Games
         }
 
 
-        public static createInstance(): GameWindow 
+        public static createInstance(): GameWindow
         {
             return <GameWindow><any>(fairygui.UIPackage.createObject("Main", "GameUI"));
         }

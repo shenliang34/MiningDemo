@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="204,85" extention="Button">
+  <controller name="button" pages="6,up,7,down,8,disabled,9,selectedDisabled" selected="1"/>
+  <displayList>
+    <loader id="n4_ennx" name="icon" xy="0,0" size="204,85" url="ui://43jwvuthennx4b"/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="1.20"/>
+</component>

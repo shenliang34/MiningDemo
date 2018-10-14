@@ -14,17 +14,12 @@
     <image id="heeqj" name="wyd-1_06.png" path="/sprite/wy/"/>
     <image id="heeqk" name="wyd-1_07.png" path="/sprite/wy/"/>
     <image id="heeql" name="wyd-1_08.png" path="/sprite/wy/"/>
-    <movieclip id="heeqm" name="WuYa.jta" path="/movieclip/"/>
     <image id="hxumn" name="10060.png" path="/sprite/effect/yantong/"/>
     <image id="hxumo" name="10068.png" path="/sprite/effect/yantong/"/>
     <image id="hxump" name="10076.png" path="/sprite/effect/yantong/"/>
     <image id="hxumq" name="10084.png" path="/sprite/effect/yantong/"/>
     <image id="hxumr" name="10092.png" path="/sprite/effect/yantong/"/>
     <image id="hxums" name="10100.png" path="/sprite/effect/yantong/"/>
-    <movieclip id="hxum40" name="car1_up_45.jta" path="/movieclip/"/>
-    <movieclip id="hxum41" name="car1_down_45.jta" path="/movieclip/"/>
-    <movieclip id="hxum43" name="car1_right.jta" path="/movieclip/"/>
-    <component id="hxum45" name="car1.xml" path="/movieclip/"/>
     <component id="l37146" name="Container.xml" path="/" exported="true"/>
     <image id="ennx49" name="bg.png" path="/sprite/ui/"/>
     <image id="ennx4a" name="bigcar.png" path="/sprite/ui/"/>
@@ -43,16 +38,22 @@
     <image id="ennx4n" name="smallcar.png" path="/sprite/ui/"/>
     <image id="ennx4o" name="mincar.png" path="/sprite/ui/"/>
     <component id="ennx4p" name="ShopWindow.xml" path="/" exported="true"/>
-    <image id="ennx4q" name="示意图.png" path="/sprite/ui/"/>
     <component id="ennx4s" name="CloseBtn.xml" path="/" exported="true"/>
     <component id="ennx4t" name="ShopItem.xml" path="/" exported="true"/>
     <component id="ennx4u" name="BuyBtn.xml" path="/" exported="true"/>
     <component id="ennx4v" name="ShopPanel.xml" path="/"/>
     <component id="ennx4w" name="Toast.xml" path="/" exported="true"/>
-    <image id="id724x" name="icon_coin.png" path="/sprite/item/" exported="true"/>
+    <image id="id724x" name="icon_coin.png" path="/sprite/item/" exported="true" scale=""/>
     <component id="id724y" name="CoinItem.xml" path="/" exported="true"/>
     <component id="id724z" name="CoinMinItem.xml" path="/" exported="true"/>
     <component id="id7250" name="SurePanel.xml" path="/" exported="true"/>
+    <image id="aiq551" name="buybg.png" path="/sprite/ui/"/>
+    <image id="aiq552" name="cancle.png" path="/sprite/ui/"/>
+    <image id="aiq553" name="sure.png" path="/sprite/ui/"/>
+    <component id="aiq554" name="CommonBtn.xml" path="/" exported="true"/>
+    <movieclip id="aiq555" name="MaoYan.jta" path="/movieclip/"/>
+    <image id="aiq556" name="shanguang.png" path="/sprite/effect/flash/"/>
+    <component id="aiq557" name="FlashEffect.xml" path="/movieclip/" exported="true"/>
   </resources>
   <publish name="Main" genCode="true"/>
 </packageDescription>

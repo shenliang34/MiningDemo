@@ -105,6 +105,7 @@ namespace Games
             Laya.loader.load([
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
+                { url: "res/Main@atlas0_1.png", type: Laya.Loader.IMAGE },
                 { url: "res/atlas/anima/che1.atlas" },
                 { url: "res/atlas/anima/che2.atlas" },
                 { url: "res/atlas/anima/che3.atlas" },

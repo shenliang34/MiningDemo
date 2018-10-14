@@ -13,6 +13,8 @@ namespace Games
         public shopWindow: ShopWindow;
         public gameWindow: GameWindow;
 
+        public curBagCarNum: number = 0;
+
         public gold: number = 0;
 
         constructor()

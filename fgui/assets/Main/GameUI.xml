@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
+  <controller name="c_visible_mapyan" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <image id="n53_id72" name="n53" src="gcz43" fileName="sprite/element/jinzi.png" xy="24,235"/>
-    <image id="n54_id72" name="n54" src="gcz43" fileName="sprite/element/jinzi.png" xy="306,24"/>
-    <image id="n2_heeq" name="n2" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101"/>
+    <image id="n2_heeq" name="gold1" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101"/>
+    <image id="n53_id72" name="gold2" src="gcz43" fileName="sprite/element/jinzi.png" xy="24,235"/>
+    <image id="n54_id72" name="gold3" src="gcz43" fileName="sprite/element/jinzi.png" xy="306,24"/>
     <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920" locked="true"/>
     <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="490,1260" scale="1.5,1.5"/>
     <graph id="n10_l371" name="startPos" xy="662,1425" size="10,10" alpha="0" type="rect" lineSize="0"/>
@@ -26,7 +27,7 @@
     <graph id="n49_ennx" name="endPos5" xy="557,327" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n50_ennx" name="endPos6" xy="600,189" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n52_ennx" name="npcPos" xy="118,1661" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="873,31" pivot="1,0" size="174,65">
+    <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="875,31" pivot="1,0" size="172,65">
       <Label title="1111"/>
     </component>
     <graph id="n58_id72" name="startPos1" xy="555,1458" size="10,10" alpha="0" type="rect" lineSize="0"/>
@@ -34,5 +35,11 @@
     <graph id="n59_id72" name="startPos3" xy="673,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n61_id72" name="startPos4" xy="734,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n62_id72" name="startPos5" xy="787,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <movieclip id="n65_aiq5" name="n65" src="aiq555" fileName="movieclip/MaoYan.jta" xy="487,1124" scale="0.5,0.5">
+      <gearDisplay controller="c_visible_mapyan" pages="1"/>
+    </movieclip>
+    <movieclip id="n63_aiq5" name="n63" src="aiq555" fileName="movieclip/MaoYan.jta" xy="481,1166" scale="0.5,0.5">
+      <gearDisplay controller="c_visible_mapyan" pages="1"/>
+    </movieclip>
   </displayList>
 </component>
