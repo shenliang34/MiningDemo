@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="338,65" extention="Label">
+  <displayList>
+    <image id="n55_id72" name="n55" src="id724x" fileName="sprite/item/icon_coin.png" xy="-1,5" scale="0.8,0.8"/>
+    <text id="n56_id72" name="title" xy="55,13" size="276,39" fontSize="30" color="#ffffff" align="right" vAlign="middle" bold="true" singleLine="true" text="1111111111111111"/>
+  </displayList>
+  <relation target="n56_id72" sidePair="rightext-right"/>
+</component>

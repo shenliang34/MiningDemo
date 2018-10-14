@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="204,85" extention="Button">
+  <controller name="button" pages="6,up,7,down,8,disabled,9,selectedDisabled" selected="3"/>
+  <displayList>
+    <loader id="n4_ennx" name="n4" xy="0,0" size="204,85" url="ui://43jwvuthennx4b">
+      <gearIcon controller="button" pages="8" values="ui://43jwvuthennx4c" default="ui://43jwvuthennx4b"/>
+    </loader>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="1.20"/>
+</component>

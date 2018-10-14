@@ -24,4 +24,11 @@
    <item name="anima/che1/che_you0004.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="anima/che1/che_you0005.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="anima/che1/che_you0006.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10060.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10068.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10076.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10084.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10092.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/maoyan/10100.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="anima/npc" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
 </res>

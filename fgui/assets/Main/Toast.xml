@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="975,100">
+  <displayList>
+    <image id="n0_ennx" name="n0" src="ennx4k" fileName="sprite/ui/line2.png" xy="0,0" size="975,100">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n1_ennx" name="msg" xy="49,19" pivot="0.5,0.5" size="876,60" restrictSize="210,900,0,0" fontSize="49" color="#ffffff" align="center" autoSize="height" bold="true" text="字示文字示示字示文">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+  <relation target="n1_ennx" sidePair="width-width,height-height"/>
+</component>

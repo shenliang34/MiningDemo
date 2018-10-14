@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="758,534" extention="Label">
+  <displayList>
+    <image id="n0_ennx" name="n0" src="ennx4k" fileName="sprite/ui/line2.png" xy="2,3" size="753,534"/>
+    <component id="n1_ennx" name="close" src="ennx4s" fileName="CloseBtn.xml" xy="670,1"/>
+    <text id="n3_id72" name="title" xy="269,176" size="219,50" fontSize="40" color="#ffffff" bold="true" text="确认购买？"/>
+    <component id="n4_id72" name="buy" src="ennx4u" fileName="BuyBtn.xml" xy="277,335"/>
+  </displayList>
+</component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="679,183">
+  <controller name="c_state" pages="0,,1," selected="1"/>
+  <controller name="c_icon" pages="0,,1,,2,,3,,4," selected="4"/>
+  <displayList>
+    <loader id="n0_ennx" name="n0" xy="0,0" size="679,183" url="ui://43jwvuthennx4k">
+      <gearIcon controller="c_state" pages="1" values="ui://43jwvuthennx4k" default="ui://43jwvuthennx4j"/>
+    </loader>
+    <loader id="n1_ennx" name="icon" xy="30,17" size="148,148" url="ui://43jwvuthennx4h">
+      <gearIcon controller="c_icon" pages="1,2,3,4" values="ui://43jwvuthennx4e|ui://43jwvuthennx4f|ui://43jwvuthennx4g|ui://43jwvuthennx4h" default="ui://43jwvuthennx4d"/>
+    </loader>
+    <text id="n2_ennx" name="priece" xy="198,22" size="110,37" fontSize="28" color="#ffffff" bold="true" text="价格：10"/>
+    <text id="n3_ennx" name="num" xy="198,59" size="110,37" fontSize="28" color="#ffffff" bold="true" text="算力：10"/>
+    <text id="n4_ennx" name="sec" xy="198,95" size="110,37" fontSize="28" color="#ffffff" bold="true" text="周期：10"/>
+    <text id="n5_ennx" name="daily" xy="199,133" size="182,37" fontSize="28" color="#ffffff" bold="true" text="日产属性：10"/>
+    <loader id="n6_ennx" name="n6" xy="445,35" size="156,39" url="ui://43jwvuthennx4l">
+      <gearIcon controller="c_icon" pages="0,1,2,3" values="ui://43jwvuthennx4o|ui://43jwvuthennx4n|ui://43jwvuthennx4m|ui://43jwvuthennx4a" default="ui://43jwvuthennx4l"/>
+    </loader>
+    <component id="n7_ennx" name="buy" src="ennx4u" fileName="BuyBtn.xml" xy="422,83"/>
+  </displayList>
+</component>

@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
   <displayList>
-    <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0">
+    <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <image id="n2_heeq" name="n2" src="gcz43" fileName="sprite/element/jinzi.png" xy="149,246"/>
-    <image id="n4_heeq" name="n4" src="gcz41" fileName="sprite/npc/npc.png" xy="238,1704"/>
-    <movieclip id="n7_heeq" name="n7" src="heeqm" fileName="movieclip/WuYa.jta" xy="345,420" pivot="0.5,0.5" scale="-1,1" playing="false"/>
-    <movieclip id="n6_heeq" name="n6" src="heeqm" fileName="movieclip/WuYa.jta" xy="660,1391" pivot="0.5,0.5" scale="-1,1"/>
-    <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920"/>
-    <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="651,1348"/>
-    <graph id="n10_l371" name="n10" xy="-238,844" size="10,10" type="rect"/>
+    <image id="n53_id72" name="n53" src="gcz43" fileName="sprite/element/jinzi.png" xy="24,235"/>
+    <image id="n54_id72" name="n54" src="gcz43" fileName="sprite/element/jinzi.png" xy="306,24"/>
+    <image id="n2_heeq" name="n2" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101"/>
+    <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920" locked="true"/>
+    <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="490,1260" scale="1.5,1.5"/>
+    <graph id="n10_l371" name="startPos" xy="662,1425" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n34_ennx" name="pos2" xy="494,921" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n35_ennx" name="pos3" xy="581,814" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n36_ennx" name="pos4" xy="737,655" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n37_ennx" name="pos6" xy="910,528" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n41_ennx" name="pos1" xy="346,955" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n38_ennx" name="endPos1" xy="214,471" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n39_ennx" name="endPos4" xy="442,265" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n40_ennx" name="endPos3" xy="336,284" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n43_ennx" name="endPos2" xy="292,385" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n44_ennx" name="pos5" xy="825,587" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n46_ennx" name="pos1_1" xy="369,702" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n47_ennx" name="pos3_1" xy="523,648" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n48_ennx" name="pos2_1" xy="450,665" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n49_ennx" name="endPos5" xy="557,327" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n50_ennx" name="endPos6" xy="600,189" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n52_ennx" name="npcPos" xy="118,1661" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="873,31" pivot="1,0" size="174,65">
+      <Label title="1111"/>
+    </component>
+    <graph id="n58_id72" name="startPos1" xy="555,1458" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n60_id72" name="startPos2" xy="617,1458" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n59_id72" name="startPos3" xy="673,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n61_id72" name="startPos4" xy="734,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n62_id72" name="startPos5" xy="787,1459" size="10,10" alpha="0" type="rect" lineSize="0"/>
   </displayList>
-  <transition name="t0" autoPlayRepeat="-1">
-    <item time="0" type="Scale" target="n6_heeq" value="-1,1"/>
-    <item time="0" type="Visible" target="n6_heeq" value="true"/>
-    <item time="0" type="Visible" target="n7_heeq" value="false"/>
-    <item time="0" type="XY" target="n6_heeq" tween="true" startValue="660,1390" endValue="345,420" duration="65" ease="Linear" yoyo="true"/>
-    <item time="65" type="Visible" target="n7_heeq" value="true"/>
-    <item time="65" type="Visible" target="n6_heeq" value="false"/>
-    <item time="78" type="Scale" target="n6_heeq" value="1,1"/>
-    <item time="78" type="Visible" target="n7_heeq" value="false"/>
-    <item time="78" type="Visible" target="n6_heeq" value="true"/>
-    <item time="78" type="XY" target="n6_heeq" tween="true" startValue="330.1,401.33" endValue="660,1390" duration="64" ease="Linear"/>
-    <item time="156" type="XY" target="n6_heeq" value="660,1390"/>
-  </transition>
 </component>

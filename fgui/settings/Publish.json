@@ -2,7 +2,7 @@
 	"binaryFormat":false,
 	"codeGeneration":{
 		"classNamePrefix":"UI_",
-		"codePath":"F:\\Demo\\Mining\\client\\src\\Zfairygui",
+		"codePath":"F:\\Mining\\client\\src\\Zfairygui",
 		"codeType":"TS",
 		"getMemberByName":false,
 		"ignoreNoname":false,
@@ -12,5 +12,5 @@
 	"compressDesc":false,
 	"fileExtension":"bin",
 	"packageCount":2,
-	"path":"F:\\Demo\\Mining\\client\\bin\\res"
+	"path":"F:\\Mining\\client\\bin\\res"
 }

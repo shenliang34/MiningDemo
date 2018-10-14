@@ -76,9 +76,10 @@ namespace Games
 
             // //
             Laya.stage.scaleMode = laya.display.Stage.SCALE_SHOWALL
-            Laya.stage.alignH = "left";
-            Laya.stage.alignV = "top";
-            Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
+            Laya.stage.alignH = "center";
+            Laya.stage.alignV = "center";
+            Laya.stage.bgColor = "#000000"
+            // Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
 
             Laya.loader.load([
                 "res/progressBar.png",
@@ -105,6 +106,12 @@ namespace Games
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
                 { url: "res/atlas/anima/che1.atlas" },
+                { url: "res/atlas/anima/che2.atlas" },
+                { url: "res/atlas/anima/che3.atlas" },
+                { url: "res/atlas/anima/che4.atlas" },
+                { url: "res/atlas/anima/che5.atlas" },
+                { url: "res/atlas/anima/maoyan.atlas" },
+                { url: "res/atlas/anima/npc.atlas" },
             ], Handler.create(this, this.onLoaded), Handler.create(this, this.onProgress, null, false));
         }
 
@@ -159,3 +166,4 @@ namespace Games
 
     new GameMain();
 }
+var user = new Games.User();

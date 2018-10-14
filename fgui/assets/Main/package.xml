@@ -21,126 +21,38 @@
     <image id="hxumq" name="10084.png" path="/sprite/effect/yantong/"/>
     <image id="hxumr" name="10092.png" path="/sprite/effect/yantong/"/>
     <image id="hxums" name="10100.png" path="/sprite/effect/yantong/"/>
-    <image id="hxumt" name="che_45shang0000.png" path="/sprite/car/che5/"/>
-    <image id="hxumu" name="che_45shang0001.png" path="/sprite/car/che5/"/>
-    <image id="hxumv" name="che_45shang0002.png" path="/sprite/car/che5/"/>
-    <image id="hxumw" name="che_45shang0003.png" path="/sprite/car/che5/"/>
-    <image id="hxumx" name="che_45shang0004.png" path="/sprite/car/che5/"/>
-    <image id="hxumy" name="che_45shang0005.png" path="/sprite/car/che5/"/>
-    <image id="hxumz" name="che_45shang0006.png" path="/sprite/car/che5/"/>
-    <image id="hxum10" name="che_45xia0000.png" path="/sprite/car/che5/"/>
-    <image id="hxum11" name="che_45xia0001.png" path="/sprite/car/che5/"/>
-    <image id="hxum12" name="che_45xia0002.png" path="/sprite/car/che5/"/>
-    <image id="hxum13" name="che_45xia0003.png" path="/sprite/car/che5/"/>
-    <image id="hxum14" name="che_45xia0004.png" path="/sprite/car/che5/"/>
-    <image id="hxum15" name="che_45xia0005.png" path="/sprite/car/che5/"/>
-    <image id="hxum16" name="che_45xia0006.png" path="/sprite/car/che5/"/>
-    <image id="hxum17" name="che_shang.png" path="/sprite/car/che5/"/>
-    <image id="hxum18" name="che_xia.png" path="/sprite/car/che5/"/>
-    <image id="hxum19" name="che_you0000.png" path="/sprite/car/che5/"/>
-    <image id="hxum1a" name="che_you0001.png" path="/sprite/car/che5/"/>
-    <image id="hxum1b" name="che_you0002.png" path="/sprite/car/che5/"/>
-    <image id="hxum1c" name="che_you0003.png" path="/sprite/car/che5/"/>
-    <image id="hxum1d" name="che_you0004.png" path="/sprite/car/che5/"/>
-    <image id="hxum1e" name="che_you0005.png" path="/sprite/car/che5/"/>
-    <image id="hxum1f" name="che_you0006.png" path="/sprite/car/che5/"/>
-    <image id="hxum1g" name="che_45shang0000.png" path="/sprite/car/che4/"/>
-    <image id="hxum1h" name="che_45shang0001.png" path="/sprite/car/che4/"/>
-    <image id="hxum1i" name="che_45shang0002.png" path="/sprite/car/che4/"/>
-    <image id="hxum1j" name="che_45shang0003.png" path="/sprite/car/che4/"/>
-    <image id="hxum1k" name="che_45shang0004.png" path="/sprite/car/che4/"/>
-    <image id="hxum1l" name="che_45shang0005.png" path="/sprite/car/che4/"/>
-    <image id="hxum1m" name="che_45shang0006.png" path="/sprite/car/che4/"/>
-    <image id="hxum1n" name="che_45xia0000.png" path="/sprite/car/che4/"/>
-    <image id="hxum1o" name="che_45xia0001.png" path="/sprite/car/che4/"/>
-    <image id="hxum1p" name="che_45xia0002.png" path="/sprite/car/che4/"/>
-    <image id="hxum1q" name="che_45xia0003.png" path="/sprite/car/che4/"/>
-    <image id="hxum1r" name="che_45xia0004.png" path="/sprite/car/che4/"/>
-    <image id="hxum1s" name="che_45xia0005.png" path="/sprite/car/che4/"/>
-    <image id="hxum1t" name="che_45xia0006.png" path="/sprite/car/che4/"/>
-    <image id="hxum1u" name="che_shang.png" path="/sprite/car/che4/"/>
-    <image id="hxum1v" name="che_xia.png" path="/sprite/car/che4/"/>
-    <image id="hxum1w" name="che_you0000.png" path="/sprite/car/che4/"/>
-    <image id="hxum1x" name="che_you0001.png" path="/sprite/car/che4/"/>
-    <image id="hxum1y" name="che_you0002.png" path="/sprite/car/che4/"/>
-    <image id="hxum1z" name="che_you0003.png" path="/sprite/car/che4/"/>
-    <image id="hxum20" name="che_you0004.png" path="/sprite/car/che4/"/>
-    <image id="hxum21" name="che_you0005.png" path="/sprite/car/che4/"/>
-    <image id="hxum22" name="che_you0006.png" path="/sprite/car/che4/"/>
-    <image id="hxum23" name="che_45shang0000.png" path="/sprite/car/che3/"/>
-    <image id="hxum24" name="che_45shang0001.png" path="/sprite/car/che3/"/>
-    <image id="hxum25" name="che_45shang0002.png" path="/sprite/car/che3/"/>
-    <image id="hxum26" name="che_45shang0003.png" path="/sprite/car/che3/"/>
-    <image id="hxum27" name="che_45shang0004.png" path="/sprite/car/che3/"/>
-    <image id="hxum28" name="che_45shang0005.png" path="/sprite/car/che3/"/>
-    <image id="hxum29" name="che_45shang0006.png" path="/sprite/car/che3/"/>
-    <image id="hxum2a" name="che_45xia0000.png" path="/sprite/car/che3/"/>
-    <image id="hxum2b" name="che_45xia0001.png" path="/sprite/car/che3/"/>
-    <image id="hxum2c" name="che_45xia0002.png" path="/sprite/car/che3/"/>
-    <image id="hxum2d" name="che_45xia0003.png" path="/sprite/car/che3/"/>
-    <image id="hxum2e" name="che_45xia0004.png" path="/sprite/car/che3/"/>
-    <image id="hxum2f" name="che_45xia0005.png" path="/sprite/car/che3/"/>
-    <image id="hxum2g" name="che_45xia0006.png" path="/sprite/car/che3/"/>
-    <image id="hxum2h" name="che_xia.png" path="/sprite/car/che3/"/>
-    <image id="hxum2i" name="che_you0000.png" path="/sprite/car/che3/"/>
-    <image id="hxum2j" name="che_you0001.png" path="/sprite/car/che3/"/>
-    <image id="hxum2k" name="che_you0002.png" path="/sprite/car/che3/"/>
-    <image id="hxum2l" name="che_you0003.png" path="/sprite/car/che3/"/>
-    <image id="hxum2m" name="che_you0004.png" path="/sprite/car/che3/"/>
-    <image id="hxum2n" name="che_you0005.png" path="/sprite/car/che3/"/>
-    <image id="hxum2o" name="che_you0006.png" path="/sprite/car/che3/"/>
-    <image id="hxum2p" name="che_⁮shang.png" path="/sprite/car/che3/"/>
-    <image id="hxum2q" name="che_45shang0000.png" path="/sprite/car/che2/"/>
-    <image id="hxum2r" name="che_45shang0001.png" path="/sprite/car/che2/"/>
-    <image id="hxum2s" name="che_45shang0002.png" path="/sprite/car/che2/"/>
-    <image id="hxum2t" name="che_45shang0003.png" path="/sprite/car/che2/"/>
-    <image id="hxum2u" name="che_45shang0004.png" path="/sprite/car/che2/"/>
-    <image id="hxum2v" name="che_45shang0005.png" path="/sprite/car/che2/"/>
-    <image id="hxum2w" name="che_45shang0006.png" path="/sprite/car/che2/"/>
-    <image id="hxum2x" name="che_45⁮xia0000.png" path="/sprite/car/che2/"/>
-    <image id="hxum2y" name="che_45⁮xia0001.png" path="/sprite/car/che2/"/>
-    <image id="hxum2z" name="che_45⁮xia0002.png" path="/sprite/car/che2/"/>
-    <image id="hxum30" name="che_45⁮xia0003.png" path="/sprite/car/che2/"/>
-    <image id="hxum31" name="che_45⁮xia0004.png" path="/sprite/car/che2/"/>
-    <image id="hxum32" name="che_45⁮xia0005.png" path="/sprite/car/che2/"/>
-    <image id="hxum33" name="che_45⁮xia0006.png" path="/sprite/car/che2/"/>
-    <image id="hxum34" name="che_you0000.png" path="/sprite/car/che2/"/>
-    <image id="hxum35" name="che_you0001.png" path="/sprite/car/che2/"/>
-    <image id="hxum36" name="che_you0002.png" path="/sprite/car/che2/"/>
-    <image id="hxum37" name="che_you0003.png" path="/sprite/car/che2/"/>
-    <image id="hxum38" name="che_you0004.png" path="/sprite/car/che2/"/>
-    <image id="hxum39" name="che_you0005.png" path="/sprite/car/che2/"/>
-    <image id="hxum3a" name="che_you0006.png" path="/sprite/car/che2/"/>
-    <image id="hxum3b" name="che_⁮shang.png" path="/sprite/car/che2/"/>
-    <image id="hxum3c" name="che_⁮xia.png" path="/sprite/car/che2/"/>
-    <image id="hxum3d" name="che_45shang0000.png" path="/sprite/car/che1/"/>
-    <image id="hxum3e" name="che_45shang0001.png" path="/sprite/car/che1/"/>
-    <image id="hxum3f" name="che_45shang0002.png" path="/sprite/car/che1/"/>
-    <image id="hxum3g" name="che_45shang0003.png" path="/sprite/car/che1/"/>
-    <image id="hxum3h" name="che_45shang0004.png" path="/sprite/car/che1/"/>
-    <image id="hxum3i" name="che_45shang0005.png" path="/sprite/car/che1/"/>
-    <image id="hxum3j" name="che_45shang0006.png" path="/sprite/car/che1/"/>
-    <image id="hxum3k" name="che_45xia0000.png" path="/sprite/car/che1/"/>
-    <image id="hxum3l" name="che_45xia0001.png" path="/sprite/car/che1/"/>
-    <image id="hxum3m" name="che_45xia0002.png" path="/sprite/car/che1/"/>
-    <image id="hxum3n" name="che_45xia0003.png" path="/sprite/car/che1/"/>
-    <image id="hxum3o" name="che_45xia0004.png" path="/sprite/car/che1/"/>
-    <image id="hxum3p" name="che_45xia0005.png" path="/sprite/car/che1/"/>
-    <image id="hxum3q" name="che_45xia0006.png" path="/sprite/car/che1/"/>
-    <image id="hxum3r" name="che_you0000.png" path="/sprite/car/che1/"/>
-    <image id="hxum3s" name="che_you0001.png" path="/sprite/car/che1/"/>
-    <image id="hxum3t" name="che_you0002.png" path="/sprite/car/che1/"/>
-    <image id="hxum3u" name="che_you0003.png" path="/sprite/car/che1/"/>
-    <image id="hxum3v" name="che_you0004.png" path="/sprite/car/che1/"/>
-    <image id="hxum3w" name="che_you0005.png" path="/sprite/car/che1/"/>
-    <image id="hxum3x" name="che_you0006.png" path="/sprite/car/che1/"/>
-    <image id="hxum3y" name="che_shang.png" path="/sprite/car/che1/"/>
-    <image id="hxum3z" name="che_xia.png" path="/sprite/car/che1/"/>
     <movieclip id="hxum40" name="car1_up_45.jta" path="/movieclip/"/>
     <movieclip id="hxum41" name="car1_down_45.jta" path="/movieclip/"/>
     <movieclip id="hxum43" name="car1_right.jta" path="/movieclip/"/>
     <component id="hxum45" name="car1.xml" path="/movieclip/"/>
     <component id="l37146" name="Container.xml" path="/" exported="true"/>
+    <image id="ennx49" name="bg.png" path="/sprite/ui/"/>
+    <image id="ennx4a" name="bigcar.png" path="/sprite/ui/"/>
+    <image id="ennx4b" name="buy.png" path="/sprite/ui/"/>
+    <image id="ennx4c" name="buy2.png" path="/sprite/ui/"/>
+    <image id="ennx4d" name="car1.png" path="/sprite/ui/"/>
+    <image id="ennx4e" name="car2.png" path="/sprite/ui/"/>
+    <image id="ennx4f" name="car3.png" path="/sprite/ui/"/>
+    <image id="ennx4g" name="car4.png" path="/sprite/ui/"/>
+    <image id="ennx4h" name="car5.png" path="/sprite/ui/"/>
+    <image id="ennx4i" name="close.png" path="/sprite/ui/"/>
+    <image id="ennx4j" name="line1.png" path="/sprite/ui/"/>
+    <image id="ennx4k" name="line2.png" path="/sprite/ui/" scale="9grid" scale9grid="160,80,359,23" duplicatePadding="true"/>
+    <image id="ennx4l" name="supercar.png" path="/sprite/ui/"/>
+    <image id="ennx4m" name="midcar.png" path="/sprite/ui/"/>
+    <image id="ennx4n" name="smallcar.png" path="/sprite/ui/"/>
+    <image id="ennx4o" name="mincar.png" path="/sprite/ui/"/>
+    <component id="ennx4p" name="ShopWindow.xml" path="/" exported="true"/>
+    <image id="ennx4q" name="示意图.png" path="/sprite/ui/"/>
+    <component id="ennx4s" name="CloseBtn.xml" path="/" exported="true"/>
+    <component id="ennx4t" name="ShopItem.xml" path="/" exported="true"/>
+    <component id="ennx4u" name="BuyBtn.xml" path="/" exported="true"/>
+    <component id="ennx4v" name="ShopPanel.xml" path="/"/>
+    <component id="ennx4w" name="Toast.xml" path="/" exported="true"/>
+    <image id="id724x" name="icon_coin.png" path="/sprite/item/" exported="true"/>
+    <component id="id724y" name="CoinItem.xml" path="/" exported="true"/>
+    <component id="id724z" name="CoinMinItem.xml" path="/" exported="true"/>
+    <component id="id7250" name="SurePanel.xml" path="/" exported="true"/>
   </resources>
   <publish name="Main" genCode="true"/>
 </packageDescription>
