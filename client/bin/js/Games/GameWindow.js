@@ -1,8 +1,16 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Games;
 (function (Games) {
     var Dirction;
@@ -17,7 +25,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = (function (_super) {
+    var GameWindow = /** @class */ (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -88,6 +96,7 @@ var Games;
         };
         GameWindow.prototype.onClickNpc = function () {
             // this.m_c_show_shop.selectedIndex = 1;
+            Games.SoundManager.playSound(Games.SoundKey.click_npc, true, 1);
             this.shopWindow.show();
         };
         GameWindow.prototype.showTip = function (msg) {
@@ -126,6 +135,14 @@ var Games;
         //显示
         GameWindow.prototype.show = function () {
             if (this.curCars.length < 5) {
+                // this.createCar();
+                // setTimeout(() =>
+                // {
+                // this.createCar()
+                // this.createCar()
+                // this.createCar()
+                // }, 6000);
+                // }
             }
         };
         //创建一个

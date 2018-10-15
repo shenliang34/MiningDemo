@@ -3,7 +3,7 @@ var Loader = laya.net.Loader;
 var Stage = laya.display.Stage;
 var Games;
 (function (Games) {
-    var GameMain = (function () {
+    var GameMain = /** @class */ (function () {
         function GameMain() {
             //初始化微信小游戏适配
             Laya.MiniAdpter.init();
@@ -90,6 +90,10 @@ var Games;
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
                 { url: "res/Main@atlas0_1.png", type: Laya.Loader.IMAGE },
+                // { url: "sound/Main@p3jo5a.mp3", type: Laya.Loader.SOUND },
+                // { url: "res/Main@p3jo5b.mp3", type: Laya.Loader.SOUND },
+                // { url: "res/Main@p3jo58.mp3", type: Laya.Loader.SOUND },
+                // { url: "res/Main@p3jo59.mp3", type: Laya.Loader.SOUND },
                 { url: "res/atlas/anima/che1.atlas" },
                 { url: "res/atlas/anima/che2.atlas" },
                 { url: "res/atlas/anima/che3.atlas" },

@@ -108,6 +108,8 @@ module Games
 					// effect.y = -100;
 					// effect.scale(0.2, 0.2);
 					delay = 5000;
+					SoundManager.stopSound(SoundKey.car_move);
+					SoundManager.playSound(SoundKey.wa_guangsu, null, 1);
 				}
 
 				setTimeout(() =>
@@ -123,10 +125,14 @@ module Games
 						//
 						this.startTween();
 					}));
+
+					SoundManager.playSound(SoundKey.car_move, null, 0, 0.3);
+					// Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
 				}, delay)
 			}
 			else
 			{
+				SoundManager.stopSound(SoundKey.car_move);
 				let coin: CoinMinItem = CoinMinItem.createInstance();
 				let data = user.shopDatas[this.index - 1];
 				coin.text = "+" + data.reward;
@@ -143,6 +149,8 @@ module Games
 				this.updateEffectSmoke();
 
 				this.anima.stop();
+
+				SoundManager.playSound(SoundKey.bag_com, true);
 				setTimeout(() =>
 				{
 					user.curBagCarNum--;

@@ -111,6 +111,7 @@ namespace Games
         private onClickNpc(): void
         {
             // this.m_c_show_shop.selectedIndex = 1;
+            SoundManager.playSound(SoundKey.click_npc, true, 1);
             this.shopWindow.show();
         }
 
