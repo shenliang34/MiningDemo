@@ -81,26 +81,26 @@ namespace Games
             for (var index = 0; index < 3; index++)
             {
                 let random: number = Math.random();
-                if (random > 0.2)
-                {
-                    this.timeOutFlash(index);
-                }
+                this.timeOutFlash(index);
             }
         }
         private timeOutFlash(index: number): void
         {
-            setTimeout(() =>
+            for (var i = 0; i < 3; i++)
             {
-                let flash = Main.UI_FlashEffect.createInstance();
-                let gold = this.getChild("gold" + (index + 1));
-                this.addChild(flash);
-                flash.x = gold.x + gold.width * 0.8 * Math.random();
-                flash.y = gold.y + gold.height * 0.8 * Math.random();
-                flash.m_t0.play(Handler.create(null, () =>
+                setTimeout(() =>
                 {
-                    flash.removeFromParent();
-                }), 1);
-            }, Math.random() * 4 * 1000);
+                    let flash = Main.UI_FlashEffect.createInstance();
+                    let gold = this.getChild("gold" + (index + 1));
+                    this.addChild(flash);
+                    flash.x = gold.x + gold.width * 0.8 * Math.random();
+                    flash.y = gold.y + gold.height * 0.8 * Math.random();
+                    flash.m_t0.play(Handler.create(null, () =>
+                    {
+                        flash.removeFromParent();
+                    }), 1);
+                }, Math.random() * 4 * 1000);
+            }
         }
 
         public updateGold(): void
@@ -183,8 +183,8 @@ namespace Games
                 car = new Car(index);
                 car.setParent(this);
                 this.m_container.displayListContainer.addChild(car);
+                car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);
-                car.initPosList(this.curCars.length);
             }
             return car;
         }

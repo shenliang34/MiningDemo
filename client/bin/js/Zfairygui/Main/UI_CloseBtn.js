@@ -1,20 +1,12 @@
 /** This is an automatically generated class by FairyGUI. Please do not modify it. **/
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Main;
 (function (Main) {
-    var UI_CloseBtn = /** @class */ (function (_super) {
+    var UI_CloseBtn = (function (_super) {
         __extends(UI_CloseBtn, _super);
         function UI_CloseBtn() {
             return _super.call(this) || this;
@@ -30,9 +22,9 @@ var Main;
             this.m_n2 = (this.getChildAt(2));
             this.m_n3 = (this.getChildAt(3));
         };
-        UI_CloseBtn.URL = "ui://43jwvuthennx4s";
         return UI_CloseBtn;
     }(fairygui.GButton));
+    UI_CloseBtn.URL = "ui://43jwvuthennx4s";
     Main.UI_CloseBtn = UI_CloseBtn;
 })(Main || (Main = {}));
 //# sourceMappingURL=UI_CloseBtn.js.map

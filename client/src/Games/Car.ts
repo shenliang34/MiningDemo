@@ -101,14 +101,15 @@ module Games
 				if (this.isInStayPos)
 				{
 					this.anima.play(0, true, "move_up");
-					effect = new Laya.Animation;
-					effect.loadAnimation("anima/smothEffect.ani");
-					effect.play(0, true, "up");
-					this.anima.addChild(effect);
-					effect.y = -100;
-					effect.scale(0.2, 0.2);
+					// effect = new Laya.Animation;
+					// effect.loadAnimation("anima/smothEffect.ani");
+					// effect.play(0, true, "up");
+					// this.anima.addChild(effect);
+					// effect.y = -100;
+					// effect.scale(0.2, 0.2);
 					delay = 5000;
 				}
+
 				setTimeout(() =>
 				{
 					if (effect)

@@ -3,7 +3,7 @@ var Loader = laya.net.Loader;
 var Stage = laya.display.Stage;
 var Games;
 (function (Games) {
-    var GameMain = /** @class */ (function () {
+    var GameMain = (function () {
         function GameMain() {
             //初始化微信小游戏适配
             Laya.MiniAdpter.init();

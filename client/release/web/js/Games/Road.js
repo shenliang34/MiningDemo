@@ -3,7 +3,7 @@
 */
 var Games;
 (function (Games) {
-    var Road = /** @class */ (function () {
+    var Road = (function () {
         function Road() {
             this.posList = [];
         }

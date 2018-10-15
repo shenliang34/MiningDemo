@@ -1,16 +1,8 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Games;
 (function (Games) {
     var Dirction;
@@ -25,7 +17,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = /** @class */ (function (_super) {
+    var GameWindow = (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -73,23 +65,23 @@ var Games;
         GameWindow.prototype.startFlash = function () {
             for (var index = 0; index < 3; index++) {
                 var random = Math.random();
-                if (random > 0.2) {
-                    this.timeOutFlash(index);
-                }
+                this.timeOutFlash(index);
             }
         };
         GameWindow.prototype.timeOutFlash = function (index) {
             var _this = this;
-            setTimeout(function () {
-                var flash = Main.UI_FlashEffect.createInstance();
-                var gold = _this.getChild("gold" + (index + 1));
-                _this.addChild(flash);
-                flash.x = gold.x + gold.width * 0.8 * Math.random();
-                flash.y = gold.y + gold.height * 0.8 * Math.random();
-                flash.m_t0.play(Handler.create(null, function () {
-                    flash.removeFromParent();
-                }), 1);
-            }, Math.random() * 4 * 1000);
+            for (var i = 0; i < 3; i++) {
+                setTimeout(function () {
+                    var flash = Main.UI_FlashEffect.createInstance();
+                    var gold = _this.getChild("gold" + (index + 1));
+                    _this.addChild(flash);
+                    flash.x = gold.x + gold.width * 0.8 * Math.random();
+                    flash.y = gold.y + gold.height * 0.8 * Math.random();
+                    flash.m_t0.play(Handler.create(null, function () {
+                        flash.removeFromParent();
+                    }), 1);
+                }, Math.random() * 4 * 1000);
+            }
         };
         GameWindow.prototype.updateGold = function () {
             this.m_coin.text = user.gold + "";
@@ -134,14 +126,6 @@ var Games;
         //显示
         GameWindow.prototype.show = function () {
             if (this.curCars.length < 5) {
-                // this.createCar();
-                // setTimeout(() =>
-                // {
-                // this.createCar()
-                // this.createCar()
-                // this.createCar()
-                // }, 6000);
-                // }
             }
         };
         //创建一个
@@ -154,8 +138,8 @@ var Games;
                 car = new Games.Car(index);
                 car.setParent(this);
                 this.m_container.displayListContainer.addChild(car);
+                car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);
-                car.initPosList(this.curCars.length);
             }
             return car;
         };

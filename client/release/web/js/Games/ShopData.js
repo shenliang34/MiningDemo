@@ -3,7 +3,7 @@
 */
 var Games;
 (function (Games) {
-    var ShopData = /** @class */ (function () {
+    var ShopData = (function () {
         function ShopData() {
             this.isBuyed = false;
             this.price = 10;

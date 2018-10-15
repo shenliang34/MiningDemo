@@ -38,12 +38,12 @@ module Games
 			this.shopData = shopData;
 			if (shopData.isBuyed)
 			{
-				this.m_buy.enabled = false;
+				// this.m_buy.enabled = false;
 				this.m_c_state.selectedIndex = 1;
 			}
 			else
 			{
-				this.m_buy.enabled = true;
+				// this.m_buy.enabled = true;
 				this.m_c_state.selectedIndex = 0;
 			}
 			this.m_c_icon.selectedIndex = shopData.index - 1;

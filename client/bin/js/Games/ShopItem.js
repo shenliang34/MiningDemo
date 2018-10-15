@@ -1,22 +1,14 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 /**
 * name
 */
 var Games;
 (function (Games) {
-    var ShopItem = /** @class */ (function (_super) {
+    var ShopItem = (function (_super) {
         __extends(ShopItem, _super);
         function ShopItem() {
             return _super.call(this) || this;
@@ -41,11 +33,11 @@ var Games;
         ShopItem.prototype.updateView = function (shopData) {
             this.shopData = shopData;
             if (shopData.isBuyed) {
-                this.m_buy.enabled = false;
+                // this.m_buy.enabled = false;
                 this.m_c_state.selectedIndex = 1;
             }
             else {
-                this.m_buy.enabled = true;
+                // this.m_buy.enabled = true;
                 this.m_c_state.selectedIndex = 0;
             }
             this.m_c_icon.selectedIndex = shopData.index - 1;
