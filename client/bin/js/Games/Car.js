@@ -1,15 +1,23 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 /**
 * name
 */
 var Games;
 (function (Games) {
     var Point = Laya.Point;
-    var Car = (function (_super) {
+    var Car = /** @class */ (function (_super) {
         __extends(Car, _super);
         function Car(aniIndex) {
             var _this = _super.call(this) || this;
@@ -41,12 +49,12 @@ var Games;
         Car.prototype.initPosList = function (index) {
             this.index = index;
             this.clearList();
-            var arr = (user["road" + index]);
+            var arr = (user.roads[index - 1]);
             this.nextPosList = arr.posList.concat();
             var pos = this.nextPosList.shift();
             this.anima.pos(pos.x, pos.y);
             // //endpos
-            for (var index = 1; index <= 6; index++) {
+            for (var index = 1; index <= 13; index++) {
                 var element = new Point();
                 var gobject = this.window.getChild("endPos" + index);
                 element.x = gobject.x;
@@ -95,7 +103,7 @@ var Games;
                         //
                         _this.startTween();
                     }));
-                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, 0.3);
+                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, 0.1);
                     // Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
                 }, delay);
             }

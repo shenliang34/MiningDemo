@@ -3,11 +3,13 @@ namespace Games
 {
     export class User
     {
-        public road1: Road = new Road();
-        public road2: Road = new Road();
-        public road3: Road = new Road();
-        public road4: Road = new Road();
-        public road5: Road = new Road();
+        // public road1: Road = new Road();
+        // public road2: Road = new Road();
+        // public road3: Road = new Road();
+        // public road4: Road = new Road();
+        // public road5: Road = new Road();
+
+        public roads: Array<Road>;
 
         public shopDatas: Array<ShopData>;
         public shopWindow: ShopWindow;
@@ -20,6 +22,7 @@ namespace Games
 
         constructor()
         {
+            this.roads = [];
             this.initShopData();
         }
         // 绑定自定义
@@ -38,11 +41,11 @@ namespace Games
         {
             this.shopDatas = [];
             let scale = [0.8, 0.85, 0.9, 0.95, 1];
-            this.shopDatas.push(new ShopData(1, 10, 0.4, 30, 0.8, 12));
-            this.shopDatas.push(new ShopData(1, 100, 4, 40, 0.85, 160));
-            this.shopDatas.push(new ShopData(1, 500, 16, 50, 0.9, 800));
-            this.shopDatas.push(new ShopData(1, 1000, 25, 70, 0.95, 1750));
-            this.shopDatas.push(new ShopData(1, 5000, 100, 90, 1, 9000));
+            this.shopDatas.push(new ShopData(1, 10, 0.4, 30, 0.65, 12, 1));
+            this.shopDatas.push(new ShopData(2, 100, 4, 40, 0.6, 160, 10));
+            this.shopDatas.push(new ShopData(3, 500, 16, 50, 0.65, 800, 50));
+            this.shopDatas.push(new ShopData(4, 1000, 25, 70, 0.7, 1750, 100));
+            this.shopDatas.push(new ShopData(5, 5000, 100, 90, 0.8, 9000, 150));
         }
 
         public get isMaxCar(): boolean

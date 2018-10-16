@@ -1,8 +1,16 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Games;
 (function (Games) {
     var Dirction;
@@ -17,7 +25,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = (function (_super) {
+    var GameWindow = /** @class */ (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -32,11 +40,25 @@ var Games;
             _super.prototype.constructFromXML.call(this, xml);
             user.gameWindow = this;
             this.tips = [];
-            user.road1.posList = [new Point(this.m_startPos1.x, this.m_startPos1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_endPos1.x, this.m_endPos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_startPos1.x, this.m_startPos1.y)];
-            user.road2.posList = [new Point(this.m_startPos2.x, this.m_startPos2.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_endPos2.x, this.m_endPos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_startPos2.x, this.m_startPos2.y)];
-            user.road3.posList = [new Point(this.m_startPos3.x, this.m_startPos3.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_endPos3.x, this.m_endPos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_startPos3.x, this.m_startPos3.y)];
-            user.road4.posList = [new Point(this.m_startPos4.x, this.m_startPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_endPos4.x, this.m_endPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_startPos4.x, this.m_startPos4.y)];
-            user.road5.posList = [new Point(this.m_startPos5.x, this.m_startPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_endPos5.x, this.m_endPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_startPos5.x, this.m_startPos5.y)];
+            for (var index = 1; index <= 13; index++) {
+                var road = new Games.Road();
+                user.roads.push(road);
+                var starPosGo = this.getChild("startPos" + index);
+                road.posList.push(new Point(starPosGo.x, starPosGo.y));
+                var posGo = this.getChild("pos" + index);
+                road.posList.push(new Point(posGo.x, posGo.y));
+                var endPosGo = this.getChild("endPos" + index);
+                road.posList.push(new Point(endPosGo.x, endPosGo.y));
+                var pos2Go = this.getChild("pos" + index);
+                road.posList.push(new Point(pos2Go.x, pos2Go.y));
+                var starPos2Go = this.getChild("startPos" + index);
+                road.posList.push(new Point(starPos2Go.x, starPos2Go.y));
+            }
+            // user.road1.posList = [new Point(this.m_startPos1.x, this.m_startPos1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_endPos1.x, this.m_endPos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_startPos1.x, this.m_startPos1.y)]
+            // user.road2.posList = [new Point(this.m_startPos2.x, this.m_startPos2.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_endPos2.x, this.m_endPos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_startPos2.x, this.m_startPos2.y)]
+            // user.road3.posList = [new Point(this.m_startPos3.x, this.m_startPos3.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_endPos3.x, this.m_endPos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_startPos3.x, this.m_startPos3.y)]
+            // user.road4.posList = [new Point(this.m_startPos4.x, this.m_startPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_endPos4.x, this.m_endPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_startPos4.x, this.m_startPos4.y)]
+            // user.road5.posList = [new Point(this.m_startPos5.x, this.m_startPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_endPos5.x, this.m_endPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_startPos5.x, this.m_startPos5.y)]
             this.npc = new Laya.Animation;
             this.npc.loadAnimation("anima/npc.ani");
             this.npc.pos(this.m_npcPos.x, this.m_npcPos.y);
@@ -75,7 +97,7 @@ var Games;
                 setTimeout(function () {
                     var flash = Main.UI_FlashEffect.createInstance();
                     var gold = _this.getChild("gold" + (index + 1));
-                    _this.addChild(flash);
+                    _this.m_starContainer.addChild(flash);
                     flash.x = gold.x + gold.width * 0.8 * Math.random();
                     flash.y = gold.y + gold.height * 0.8 * Math.random();
                     var rScale = Math.random() * 0.5 + 0.5;
@@ -91,7 +113,8 @@ var Games;
         };
         GameWindow.prototype.onClickNpc = function () {
             // this.m_c_show_shop.selectedIndex = 1;
-            Games.SoundManager.playSound(Games.SoundKey.click_npc, true, 1);
+            Games.SoundManager.stopSound(Games.SoundKey.click_npc);
+            Games.SoundManager.playSound(Games.SoundKey.click_npc);
             this.shopWindow.show();
         };
         GameWindow.prototype.showTip = function (msg) {
@@ -130,6 +153,14 @@ var Games;
         //显示
         GameWindow.prototype.show = function () {
             if (this.curCars.length < 5) {
+                // this.createCar();
+                // setTimeout(() =>
+                // {
+                // this.createCar()
+                // this.createCar()
+                // this.createCar()
+                // }, 6000);
+                // }
             }
         };
         //创建一个
@@ -141,11 +172,11 @@ var Games;
             else {
                 car = new Games.Car(index);
                 car.setParent(this);
-                user.gold += user.shopDatas[index].daily;
+                user.gold += user.shopDatas[index - 1].daily;
                 this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
-                car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);
+                car.initPosList(this.curCars.length);
             }
             return car;
         };

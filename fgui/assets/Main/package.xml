@@ -54,10 +54,6 @@
     <movieclip id="aiq555" name="MaoYan.jta" path="/movieclip/"/>
     <image id="aiq556" name="shanguang.png" path="/sprite/effect/flash/"/>
     <component id="aiq557" name="FlashEffect.xml" path="/movieclip/" exported="true"/>
-    <sound id="p3jo58" name="bag_com.mp3" path="/music/" exported="true"/>
-    <sound id="p3jo59" name="car_move.mp3" path="/music/" exported="true"/>
-    <sound id="p3jo5a" name="click_npc.mp3" path="/music/" exported="true"/>
-    <sound id="p3jo5b" name="wa_guangsu.mp3" path="/music/" exported="true"/>
   </resources>
   <publish name="Main" genCode="true"/>
 </packageDescription>

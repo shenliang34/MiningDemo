@@ -41,12 +41,32 @@ namespace Games
 
             user.gameWindow = this;
             this.tips = [];
+            for (var index = 1; index <= 13; index++)
+            {
+                let road = new Road();
+                user.roads.push(road);
 
-            user.road1.posList = [new Point(this.m_startPos1.x, this.m_startPos1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_endPos1.x, this.m_endPos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_startPos1.x, this.m_startPos1.y)]
-            user.road2.posList = [new Point(this.m_startPos2.x, this.m_startPos2.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_endPos2.x, this.m_endPos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_startPos2.x, this.m_startPos2.y)]
-            user.road3.posList = [new Point(this.m_startPos3.x, this.m_startPos3.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_endPos3.x, this.m_endPos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_startPos3.x, this.m_startPos3.y)]
-            user.road4.posList = [new Point(this.m_startPos4.x, this.m_startPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_endPos4.x, this.m_endPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_startPos4.x, this.m_startPos4.y)]
-            user.road5.posList = [new Point(this.m_startPos5.x, this.m_startPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_endPos5.x, this.m_endPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_startPos5.x, this.m_startPos5.y)]
+                let starPosGo = this.getChild("startPos" + index);
+                road.posList.push(new Point(starPosGo.x, starPosGo.y));
+
+                let posGo = this.getChild("pos" + index);
+                road.posList.push(new Point(posGo.x, posGo.y));
+
+                let endPosGo = this.getChild("endPos" + index);
+                road.posList.push(new Point(endPosGo.x, endPosGo.y));
+
+                let pos2Go = this.getChild("pos" + index);
+                road.posList.push(new Point(pos2Go.x, pos2Go.y));
+
+                let starPos2Go = this.getChild("startPos" + index);
+                road.posList.push(new Point(starPos2Go.x, starPos2Go.y));
+            }
+
+            // user.road1.posList = [new Point(this.m_startPos1.x, this.m_startPos1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_endPos1.x, this.m_endPos1.y), new Point(this.m_pos1_1.x, this.m_pos1_1.y), new Point(this.m_pos1.x, this.m_pos1.y), new Point(this.m_startPos1.x, this.m_startPos1.y)]
+            // user.road2.posList = [new Point(this.m_startPos2.x, this.m_startPos2.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_endPos2.x, this.m_endPos2.y), new Point(this.m_pos2_1.x, this.m_pos2_1.y), new Point(this.m_pos2.x, this.m_pos2.y), new Point(this.m_startPos2.x, this.m_startPos2.y)]
+            // user.road3.posList = [new Point(this.m_startPos3.x, this.m_startPos3.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_endPos3.x, this.m_endPos3.y), new Point(this.m_pos3_1.x, this.m_pos3_1.y), new Point(this.m_pos3.x, this.m_pos3.y), new Point(this.m_startPos3.x, this.m_startPos3.y)]
+            // user.road4.posList = [new Point(this.m_startPos4.x, this.m_startPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_endPos4.x, this.m_endPos4.y), new Point(this.m_pos4.x, this.m_pos4.y), new Point(this.m_startPos4.x, this.m_startPos4.y)]
+            // user.road5.posList = [new Point(this.m_startPos5.x, this.m_startPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_endPos5.x, this.m_endPos5.y), new Point(this.m_pos5.x, this.m_pos5.y), new Point(this.m_startPos5.x, this.m_startPos5.y)]
 
             this.npc = new Laya.Animation;
             this.npc.loadAnimation("anima/npc.ani");
@@ -94,7 +114,7 @@ namespace Games
                 {
                     let flash = Main.UI_FlashEffect.createInstance();
                     let gold = this.getChild("gold" + (index + 1));
-                    this.addChild(flash);
+                    this.m_starContainer.addChild(flash);
                     flash.x = gold.x + gold.width * 0.8 * Math.random();
                     flash.y = gold.y + gold.height * 0.8 * Math.random();
                     let rScale = Math.random() * 0.5 + 0.5;
@@ -115,7 +135,8 @@ namespace Games
         private onClickNpc(): void
         {
             // this.m_c_show_shop.selectedIndex = 1;
-            SoundManager.playSound(SoundKey.click_npc, true, 1);
+            SoundManager.stopSound(SoundKey.click_npc);
+            SoundManager.playSound(SoundKey.click_npc);
             this.shopWindow.show();
         }
 
@@ -187,11 +208,11 @@ namespace Games
             {
                 car = new Car(index);
                 car.setParent(this);
-                user.gold += user.shopDatas[index].daily;
+                user.gold += user.shopDatas[index - 1].daily;
                 this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
-                car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);
+                car.initPosList(this.curCars.length);
             }
             return car;
         }

@@ -58,13 +58,13 @@ module Games
 			this.index = index;
 			this.clearList();
 
-			let arr = <Road>(user["road" + index]);
+			let arr = <Road>(user.roads[index - 1]);
 			this.nextPosList = arr.posList.concat();
 			let pos = this.nextPosList.shift();
 			this.anima.pos(pos.x, pos.y);
 
 			// //endpos
-			for (var index = 1; index <= 6; index++)
+			for (var index = 1; index <= 13; index++)
 			{
 				var element = new Point();
 				let gobject = this.window.getChild("endPos" + index);
@@ -126,7 +126,7 @@ module Games
 						this.startTween();
 					}));
 
-					SoundManager.playSound(SoundKey.car_move, null, 0, 0.3);
+					SoundManager.playSound(SoundKey.car_move, null, 0, 0.1);
 					// Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
 				}, delay)
 			}

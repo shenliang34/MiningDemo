@@ -6,7 +6,9 @@
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
     <item time="0" type="Alpha" target="n0_aiq5" tween="true" startValue="0" endValue="1" duration="18"/>
     <item time="0" type="Rotation" target="n0_aiq5" tween="true" startValue="0" endValue="30" duration="18"/>
+    <item time="0" type="Scale" target="n0_aiq5" tween="true" startValue="0,0" endValue="2,2" duration="18"/>
     <item time="18" type="Alpha" target="n0_aiq5" tween="true" startValue="1" endValue="0" duration="18"/>
     <item time="18" type="Rotation" target="n0_aiq5" tween="true" startValue="30" endValue="0" duration="18"/>
+    <item time="18" type="Scale" target="n0_aiq5" tween="true" startValue="2,2" endValue="0,0" duration="18"/>
   </transition>
 </component>
