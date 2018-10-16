@@ -19,12 +19,17 @@ var Games;
         };
         ShopItem.prototype.onClickBuyBtn = function () {
             var _this = this;
-            user.shopWindow.m_sure.show(function () {
-                _this.shopData.isBuyed = true;
-                user.gameWindow.showTip("购买成功");
-                user.shopWindow.hide();
-                user.gameWindow.createCar(_this.shopData.index);
-            });
+            if (user.isMaxCar) {
+                user.gameWindow.showTip("数量达到上限");
+            }
+            else {
+                user.shopWindow.m_sure.show(function () {
+                    _this.shopData.isBuyed = true;
+                    user.gameWindow.showTip("购买成功");
+                    user.shopWindow.hide();
+                    user.gameWindow.createCar(_this.shopData.index);
+                });
+            }
         };
         /**
          *

@@ -14,6 +14,7 @@ namespace Games
         public gameWindow: GameWindow;
 
         public curBagCarNum: number = 0;
+        public curCars: Array<Car> = [];
 
         public gold: number = 0;
 
@@ -37,14 +38,16 @@ namespace Games
         {
             this.shopDatas = [];
             let scale = [0.8, 0.85, 0.9, 0.95, 1];
-            for (var index = 0; index < 5; index++)
-            {
-                let data = new ShopData();
-                data.index = index + 1;
-                data.scale = scale[index];
-                data.reward = index + 1;
-                this.shopDatas.push(data);
-            }
+            this.shopDatas.push(new ShopData(1, 10, 0.4, 30, 0.8, 12));
+            this.shopDatas.push(new ShopData(1, 100, 4, 40, 0.85, 160));
+            this.shopDatas.push(new ShopData(1, 500, 16, 50, 0.9, 800));
+            this.shopDatas.push(new ShopData(1, 1000, 25, 70, 0.95, 1750));
+            this.shopDatas.push(new ShopData(1, 5000, 100, 90, 1, 9000));
+        }
+
+        public get isMaxCar(): boolean
+        {
+            return user.gameWindow.curCars.length >= 13;
         }
     }
 }

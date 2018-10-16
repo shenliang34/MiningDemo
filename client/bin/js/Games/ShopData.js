@@ -3,16 +3,21 @@
 */
 var Games;
 (function (Games) {
-    var ShopData = /** @class */ (function () {
-        function ShopData() {
+    var ShopData = (function () {
+        function ShopData(index, price, daily, schedule, scale, total) {
             this.isBuyed = false;
-            this.price = 10;
-            this.daily = 10;
-            this.reward = 10;
-            this.schedule = 10;
+            this.price = 10; //价格
+            this.daily = 10; //日产
+            this.total = 10; //总量
+            this.schedule = 10; //周期
             this.index = 1;
-            this.carAnima = "";
             this.scale = 1;
+            this.index = index;
+            this.price = price;
+            this.scale = scale;
+            this.schedule = schedule;
+            this.daily = daily;
+            this.total = total;
         }
         return ShopData;
     }());

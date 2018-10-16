@@ -19,7 +19,7 @@ namespace Games
         private singleHalfAngle: number = 360.0 / 8 / 2;
 
         private pools: Array<Car>;
-        private curCars: Array<Car>;
+        public curCars: Array<Car>;
         private car: Car;
 
         private npc: Laya.Animation;
@@ -74,6 +74,8 @@ namespace Games
                 this.startFlash();
             }, 5000);
             this.startFlash();
+
+            this.m_c_visible_mapyan.selectedIndex = 1;
         }
 
         private startFlash(): void
@@ -95,6 +97,8 @@ namespace Games
                     this.addChild(flash);
                     flash.x = gold.x + gold.width * 0.8 * Math.random();
                     flash.y = gold.y + gold.height * 0.8 * Math.random();
+                    let rScale = Math.random() * 0.5 + 0.5;
+                    flash.setScale(rScale, rScale)
                     flash.m_t0.play(Handler.create(null, () =>
                     {
                         flash.removeFromParent();
@@ -183,6 +187,8 @@ namespace Games
             {
                 car = new Car(index);
                 car.setParent(this);
+                user.gold += user.shopDatas[index].daily;
+                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);

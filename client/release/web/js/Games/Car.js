@@ -75,13 +75,15 @@ var Games;
                 var effect_1;
                 if (this.isInStayPos) {
                     this.anima.play(0, true, "move_up");
-                    effect_1 = new Laya.Animation;
-                    effect_1.loadAnimation("anima/smothEffect.ani");
-                    effect_1.play(0, true, "up");
-                    this.anima.addChild(effect_1);
-                    effect_1.y = -100;
-                    effect_1.scale(0.2, 0.2);
+                    // effect = new Laya.Animation;
+                    // effect.loadAnimation("anima/smothEffect.ani");
+                    // effect.play(0, true, "up");
+                    // this.anima.addChild(effect);
+                    // effect.y = -100;
+                    // effect.scale(0.2, 0.2);
                     delay = 5000;
+                    Games.SoundManager.stopSound(Games.SoundKey.car_move);
+                    Games.SoundManager.playSound(Games.SoundKey.wa_guangsu, null, 1);
                 }
                 setTimeout(function () {
                     if (effect_1) {
@@ -93,36 +95,41 @@ var Games;
                         //
                         _this.startTween();
                     }));
+                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, 0.3);
+                    // Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
                 }, delay);
             }
             else {
-                var coin_1 = Games.CoinMinItem.createInstance();
-                var data_1 = user.shopDatas[this.index - 1];
-                coin_1.text = "+" + data_1.reward;
-                user.gameWindow.addChild(coin_1);
-                coin_1.setXY(user.gameWindow.m_startPos.x - (coin_1.width >> 1), user.gameWindow.m_startPos.y - 100);
-                Laya.Tween.to(coin_1, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, function () {
-                    coin_1.removeFromParent();
-                    user.gold += data_1.reward;
-                    user.gameWindow.updateGold();
-                }), 500);
-                user.curBagCarNum++;
-                this.updateEffectSmoke();
+                Games.SoundManager.stopSound(Games.SoundKey.car_move);
+                // let coin: CoinMinItem = CoinMinItem.createInstance();
+                var data = user.shopDatas[this.index - 1];
+                // coin.text = "+" + data.daily;
+                // user.gameWindow.addChild(coin);
+                // coin.setXY(user.gameWindow.m_startPos.x - (coin.width >> 1), user.gameWindow.m_startPos.y - 100);
+                // Laya.Tween.to(coin, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, () =>
+                // {
+                // 	coin.removeFromParent();
+                // }), 500);
+                // user.curBagCarNum++;
+                // this.updateEffectSmoke();
                 this.anima.stop();
+                Games.SoundManager.playSound(Games.SoundKey.bag_com, true);
                 setTimeout(function () {
                     user.curBagCarNum--;
-                    _this.updateEffectSmoke();
+                    // this.updateEffectSmoke();
                     _this.initPosList(_this.index);
                 }, 5000);
             }
         };
         Car.prototype.updateEffectSmoke = function () {
-            if (user.curBagCarNum > 0) {
-                user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
-            }
-            else {
-                user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
-            }
+            // if (user.curBagCarNum > 0)
+            // {
+            // user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
+            // }
+            // else
+            // {
+            // 	user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
+            // }
         };
         Object.defineProperty(Car.prototype, "isInStayPos", {
             /**
