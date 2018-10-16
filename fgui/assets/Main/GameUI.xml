@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
-  <controller name="c_visible_mapyan" pages="0,,1," selected="1"/>
+  <controller name="c_visible_mapyan" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
     <image id="n2_heeq" name="gold1" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101"/>
-    <image id="n53_id72" name="gold2" src="gcz43" fileName="sprite/element/jinzi.png" xy="24,235"/>
-    <image id="n54_id72" name="gold3" src="gcz43" fileName="sprite/element/jinzi.png" xy="306,24"/>
+    <image id="n53_id72" name="gold2" src="gcz43" fileName="sprite/element/jinzi.png" xy="4,279"/>
+    <image id="n54_id72" name="gold3" src="gcz43" fileName="sprite/element/jinzi.png" xy="433,19"/>
+    <image id="n67_nux1" name="gold4" src="gcz43" fileName="sprite/element/jinzi.png" xy="476,222"/>
+    <image id="n68_nux1" name="gold5" src="gcz43" fileName="sprite/element/jinzi.png" xy="-90,48"/>
     <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920" locked="true"/>
     <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="490,1260" scale="1.5,1.5"/>
     <graph id="n10_l371" name="startPos" xy="662,1425" size="10,10" alpha="0" type="rect" lineSize="0"/>
@@ -16,16 +18,16 @@
     <graph id="n36_ennx" name="pos4" xy="737,655" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n37_ennx" name="pos6" xy="910,528" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n41_ennx" name="pos1" xy="346,955" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n38_ennx" name="endPos1" xy="214,471" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n39_ennx" name="endPos4" xy="442,265" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n40_ennx" name="endPos3" xy="336,284" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n43_ennx" name="endPos2" xy="292,385" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n38_ennx" name="endPos1" xy="144,411" size="10,10" type="rect" lineSize="0"/>
+    <graph id="n43_ennx" name="endPos2" xy="292,385" size="10,10" type="rect" lineSize="0"/>
+    <graph id="n40_ennx" name="endPos3" xy="266,254" size="10,10" type="rect" lineSize="0"/>
+    <graph id="n39_ennx" name="endPos4" xy="442,265" size="10,10" type="rect" lineSize="0"/>
+    <graph id="n49_ennx" name="endPos5" xy="557,327" size="10,10" type="rect" lineSize="0"/>
+    <graph id="n50_ennx" name="endPos6" xy="600,189" size="10,10" type="rect" lineSize="0"/>
     <graph id="n44_ennx" name="pos5" xy="825,587" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n46_ennx" name="pos1_1" xy="369,702" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n47_ennx" name="pos3_1" xy="523,648" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n48_ennx" name="pos2_1" xy="450,665" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n49_ennx" name="endPos5" xy="557,327" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n50_ennx" name="endPos6" xy="600,189" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n52_ennx" name="npcPos" xy="118,1661" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="875,31" pivot="1,0" size="172,65">
       <Label title="1111"/>

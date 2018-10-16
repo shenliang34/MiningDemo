@@ -1,16 +1,8 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Games;
 (function (Games) {
     var Dirction;
@@ -25,7 +17,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = /** @class */ (function (_super) {
+    var GameWindow = (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -69,6 +61,7 @@ var Games;
                 _this.startFlash();
             }, 5000);
             this.startFlash();
+            this.m_c_visible_mapyan.selectedIndex = 1;
         };
         GameWindow.prototype.startFlash = function () {
             for (var index = 0; index < 3; index++) {
@@ -85,6 +78,8 @@ var Games;
                     _this.addChild(flash);
                     flash.x = gold.x + gold.width * 0.8 * Math.random();
                     flash.y = gold.y + gold.height * 0.8 * Math.random();
+                    var rScale = Math.random() * 0.5 + 0.5;
+                    flash.setScale(rScale, rScale);
                     flash.m_t0.play(Handler.create(null, function () {
                         flash.removeFromParent();
                     }), 1);
@@ -135,14 +130,6 @@ var Games;
         //显示
         GameWindow.prototype.show = function () {
             if (this.curCars.length < 5) {
-                // this.createCar();
-                // setTimeout(() =>
-                // {
-                // this.createCar()
-                // this.createCar()
-                // this.createCar()
-                // }, 6000);
-                // }
             }
         };
         //创建一个
@@ -154,6 +141,8 @@ var Games;
             else {
                 car = new Games.Car(index);
                 car.setParent(this);
+                user.gold += user.shopDatas[index].daily;
+                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);

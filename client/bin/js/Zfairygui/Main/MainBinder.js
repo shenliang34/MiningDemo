@@ -1,7 +1,7 @@
 /** This is an automatically generated class by FairyGUI. Please do not modify it. **/
 var Main;
 (function (Main) {
-    var MainBinder = /** @class */ (function () {
+    var MainBinder = (function () {
         function MainBinder() {
         }
         MainBinder.bindAll = function () {

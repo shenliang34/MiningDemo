@@ -133,20 +133,18 @@ module Games
 			else
 			{
 				SoundManager.stopSound(SoundKey.car_move);
-				let coin: CoinMinItem = CoinMinItem.createInstance();
+				// let coin: CoinMinItem = CoinMinItem.createInstance();
 				let data = user.shopDatas[this.index - 1];
-				coin.text = "+" + data.reward;
-				user.gameWindow.addChild(coin);
-				coin.setXY(user.gameWindow.m_startPos.x - (coin.width >> 1), user.gameWindow.m_startPos.y - 100);
-				Laya.Tween.to(coin, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, () =>
-				{
-					coin.removeFromParent();
-					user.gold += data.reward;
-					user.gameWindow.updateGold();
-				}), 500);
+				// coin.text = "+" + data.daily;
+				// user.gameWindow.addChild(coin);
+				// coin.setXY(user.gameWindow.m_startPos.x - (coin.width >> 1), user.gameWindow.m_startPos.y - 100);
+				// Laya.Tween.to(coin, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, () =>
+				// {
+				// 	coin.removeFromParent();
+				// }), 500);
 
-				user.curBagCarNum++;
-				this.updateEffectSmoke();
+				// user.curBagCarNum++;
+				// this.updateEffectSmoke();
 
 				this.anima.stop();
 
@@ -154,7 +152,7 @@ module Games
 				setTimeout(() =>
 				{
 					user.curBagCarNum--;
-					this.updateEffectSmoke();
+					// this.updateEffectSmoke();
 					this.initPosList(this.index);
 				}, 5000);
 			}
@@ -162,14 +160,14 @@ module Games
 
 		private updateEffectSmoke()
 		{
-			if (user.curBagCarNum > 0)
-			{
-				user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
-			}
-			else
-			{
-				user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
-			}
+			// if (user.curBagCarNum > 0)
+			// {
+			// user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
+			// }
+			// else
+			// {
+			// 	user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
+			// }
 		}
 
 		/**

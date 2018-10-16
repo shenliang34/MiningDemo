@@ -61,6 +61,7 @@ var Games;
                 _this.startFlash();
             }, 5000);
             this.startFlash();
+            this.m_c_visible_mapyan.selectedIndex = 1;
         };
         GameWindow.prototype.startFlash = function () {
             for (var index = 0; index < 3; index++) {
@@ -77,6 +78,8 @@ var Games;
                     _this.addChild(flash);
                     flash.x = gold.x + gold.width * 0.8 * Math.random();
                     flash.y = gold.y + gold.height * 0.8 * Math.random();
+                    var rScale = Math.random() * 0.6 + 0.2;
+                    flash.setScale(rScale, rScale);
                     flash.m_t0.play(Handler.create(null, function () {
                         flash.removeFromParent();
                     }), 1);
@@ -88,6 +91,7 @@ var Games;
         };
         GameWindow.prototype.onClickNpc = function () {
             // this.m_c_show_shop.selectedIndex = 1;
+            Games.SoundManager.playSound(Games.SoundKey.click_npc, true, 1);
             this.shopWindow.show();
         };
         GameWindow.prototype.showTip = function (msg) {
@@ -137,6 +141,8 @@ var Games;
             else {
                 car = new Games.Car(index);
                 car.setParent(this);
+                user.gold += user.shopDatas[index].daily;
+                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 car.initPosList(this.curCars.length % 4 + 1);
                 this.curCars.push(car);

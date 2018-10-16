@@ -20,13 +20,20 @@ module Games
 
 		private onClickBuyBtn(): void
 		{
-			(<SurePanel>user.shopWindow.m_sure).show(() =>
+			if (user.isMaxCar)
 			{
-				this.shopData.isBuyed = true;
-				user.gameWindow.showTip("购买成功");
-				user.shopWindow.hide();
-				user.gameWindow.createCar(this.shopData.index);
-			});
+				user.gameWindow.showTip("数量达到上限");
+			}
+			else
+			{
+				(<SurePanel>user.shopWindow.m_sure).show(() =>
+				{
+					this.shopData.isBuyed = true;
+					user.gameWindow.showTip("购买成功");
+					user.shopWindow.hide();
+					user.gameWindow.createCar(this.shopData.index);
+				});
+			}
 		}
 
 		/**

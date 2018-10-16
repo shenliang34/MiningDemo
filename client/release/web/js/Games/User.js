@@ -8,6 +8,7 @@ var Games;
             this.road4 = new Games.Road();
             this.road5 = new Games.Road();
             this.curBagCarNum = 0;
+            this.curCars = [];
             this.gold = 0;
             this.initShopData();
         }
@@ -24,14 +25,19 @@ var Games;
         User.prototype.initShopData = function () {
             this.shopDatas = [];
             var scale = [0.8, 0.85, 0.9, 0.95, 1];
-            for (var index = 0; index < 5; index++) {
-                var data = new Games.ShopData();
-                data.index = index + 1;
-                data.scale = scale[index];
-                data.reward = index + 1;
-                this.shopDatas.push(data);
-            }
+            this.shopDatas.push(new Games.ShopData(1, 10, 0.4, 30, 0.8, 12));
+            this.shopDatas.push(new Games.ShopData(1, 100, 4, 40, 0.85, 160));
+            this.shopDatas.push(new Games.ShopData(1, 500, 16, 50, 0.9, 800));
+            this.shopDatas.push(new Games.ShopData(1, 1000, 25, 70, 0.95, 1750));
+            this.shopDatas.push(new Games.ShopData(1, 5000, 100, 90, 1, 9000));
         };
+        Object.defineProperty(User.prototype, "isMaxCar", {
+            get: function () {
+                return user.gameWindow.curCars.length >= 13;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return User;
     }());
     Games.User = User;

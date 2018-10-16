@@ -1,23 +1,15 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 /**
 * name
 */
 var Games;
 (function (Games) {
     var Point = Laya.Point;
-    var Car = /** @class */ (function (_super) {
+    var Car = (function (_super) {
         __extends(Car, _super);
         function Car(aniIndex) {
             var _this = _super.call(this) || this;
@@ -109,34 +101,35 @@ var Games;
             }
             else {
                 Games.SoundManager.stopSound(Games.SoundKey.car_move);
-                var coin_1 = Games.CoinMinItem.createInstance();
-                var data_1 = user.shopDatas[this.index - 1];
-                coin_1.text = "+" + data_1.reward;
-                user.gameWindow.addChild(coin_1);
-                coin_1.setXY(user.gameWindow.m_startPos.x - (coin_1.width >> 1), user.gameWindow.m_startPos.y - 100);
-                Laya.Tween.to(coin_1, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, function () {
-                    coin_1.removeFromParent();
-                    user.gold += data_1.reward;
-                    user.gameWindow.updateGold();
-                }), 500);
-                user.curBagCarNum++;
-                this.updateEffectSmoke();
+                // let coin: CoinMinItem = CoinMinItem.createInstance();
+                var data = user.shopDatas[this.index - 1];
+                // coin.text = "+" + data.daily;
+                // user.gameWindow.addChild(coin);
+                // coin.setXY(user.gameWindow.m_startPos.x - (coin.width >> 1), user.gameWindow.m_startPos.y - 100);
+                // Laya.Tween.to(coin, { x: user.gameWindow.m_coin.x, y: user.gameWindow.m_coin.y }, 1000, null, Handler.create(null, () =>
+                // {
+                // 	coin.removeFromParent();
+                // }), 500);
+                // user.curBagCarNum++;
+                // this.updateEffectSmoke();
                 this.anima.stop();
                 Games.SoundManager.playSound(Games.SoundKey.bag_com, true);
                 setTimeout(function () {
                     user.curBagCarNum--;
-                    _this.updateEffectSmoke();
+                    // this.updateEffectSmoke();
                     _this.initPosList(_this.index);
                 }, 5000);
             }
         };
         Car.prototype.updateEffectSmoke = function () {
-            if (user.curBagCarNum > 0) {
-                user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
-            }
-            else {
-                user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
-            }
+            // if (user.curBagCarNum > 0)
+            // {
+            // user.gameWindow.m_c_visible_mapyan.selectedIndex = 1;
+            // }
+            // else
+            // {
+            // 	user.gameWindow.m_c_visible_mapyan.selectedIndex = 0;
+            // }
         };
         Object.defineProperty(Car.prototype, "isInStayPos", {
             /**
