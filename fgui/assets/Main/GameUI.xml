@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
-  <controller name="c_visible_mapyan" pages="0,,1," selected="1"/>
+  <controller name="c_visible_mapyan" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
@@ -12,24 +12,24 @@
     <image id="n68_nux1" name="gold5" src="gcz43" fileName="sprite/element/jinzi.png" xy="-90,48"/>
     <component id="n69_f4vo" name="starContainer" src="l37146" fileName="Container.xml" xy="1,0" size="1080,1920"/>
     <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920" locked="true"/>
-    <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="490,1260" scale="1.5,1.5"/>
+    <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="350,1131" scale="2.5,2.5"/>
     <graph id="n52_ennx" name="npcPos" xy="118,1661" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="875,31" pivot="1,0" size="172,65">
       <Label title="1111"/>
     </component>
-    <graph id="n58_id72" name="startPos1" xy="676,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n60_id72" name="startPos2" xy="550,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n59_id72" name="startPos3" xy="718,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n61_id72" name="startPos4" xy="634,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n62_id72" name="startPos5" xy="592,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n77_f4vo" name="startPos6" xy="592,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n78_f4vo" name="startPos7" xy="802,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n79_f4vo" name="startPos8" xy="718,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n80_f4vo" name="startPos9" xy="550,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n81_f4vo" name="startPos10" xy="676,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n82_f4vo" name="startPos11" xy="634,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n83_f4vo" name="startPos12" xy="760,1420" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <graph id="n84_f4vo" name="startPos13" xy="760,1477" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n58_id72" name="startPos1" xy="825,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n60_id72" name="startPos2" xy="525,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n59_id72" name="startPos3" xy="645,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n61_id72" name="startPos4" xy="525,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n62_id72" name="startPos5" xy="645,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n77_f4vo" name="startPos6" xy="585,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n78_f4vo" name="startPos7" xy="765,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n79_f4vo" name="startPos8" xy="585,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n80_f4vo" name="startPos9" xy="465,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n81_f4vo" name="startPos10" xy="465,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n82_f4vo" name="startPos11" xy="765,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n83_f4vo" name="startPos12" xy="705,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
+    <graph id="n84_f4vo" name="startPos13" xy="705,1466" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n85_f4vo" name="pos1" xy="61,653" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n86_f4vo" name="pos2" xy="396,680" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n87_f4vo" name="pos3" xy="473,679" size="10,10" alpha="0" type="rect" lineSize="0"/>
@@ -56,10 +56,10 @@
     <graph id="n74_f4vo" name="endPos11" xy="614,97" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n75_f4vo" name="endPos12" xy="685,179" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n76_f4vo" name="endPos13" xy="733,299" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <movieclip id="n63_aiq5" name="n63" src="aiq555" fileName="movieclip/MaoYan.jta" xy="469,1170" scale="0.4,0.4">
+    <movieclip id="n66_gx8n" name="n66" src="aiq555" fileName="movieclip/MaoYan.jta" xy="403,1047" scale="0.6,0.6">
       <gearDisplay controller="c_visible_mapyan" pages="1"/>
     </movieclip>
-    <movieclip id="n66_gx8n" name="n66" src="aiq555" fileName="movieclip/MaoYan.jta" xy="467,1136" scale="0.4,0.4">
+    <movieclip id="n93_8bs6" name="n93" src="aiq555" fileName="movieclip/MaoYan.jta" xy="403,1091" scale="0.6,0.6">
       <gearDisplay controller="c_visible_mapyan" pages="1"/>
     </movieclip>
   </displayList>

@@ -14,12 +14,12 @@
     <image id="heeqj" name="wyd-1_06.png" path="/sprite/wy/"/>
     <image id="heeqk" name="wyd-1_07.png" path="/sprite/wy/"/>
     <image id="heeql" name="wyd-1_08.png" path="/sprite/wy/"/>
-    <image id="hxumn" name="10060.png" path="/sprite/effect/yantong/"/>
-    <image id="hxumo" name="10068.png" path="/sprite/effect/yantong/"/>
-    <image id="hxump" name="10076.png" path="/sprite/effect/yantong/"/>
-    <image id="hxumq" name="10084.png" path="/sprite/effect/yantong/"/>
-    <image id="hxumr" name="10092.png" path="/sprite/effect/yantong/"/>
-    <image id="hxums" name="10100.png" path="/sprite/effect/yantong/"/>
+    <image id="hxumn" name="10060.png" path="/sprite/effect/yantong/" exported="true" scale="" duplicatePadding="true"/>
+    <image id="hxumo" name="10068.png" path="/sprite/effect/yantong/" exported="true" scale="" duplicatePadding="true"/>
+    <image id="hxump" name="10076.png" path="/sprite/effect/yantong/" exported="true" scale="" duplicatePadding="true"/>
+    <image id="hxumq" name="10084.png" path="/sprite/effect/yantong/" exported="true"/>
+    <image id="hxumr" name="10092.png" path="/sprite/effect/yantong/" exported="true" scale="" duplicatePadding="true"/>
+    <image id="hxums" name="10100.png" path="/sprite/effect/yantong/" exported="true" scale="" duplicatePadding="true"/>
     <component id="l37146" name="Container.xml" path="/" exported="true"/>
     <image id="ennx49" name="bg.png" path="/sprite/ui/"/>
     <image id="ennx4a" name="bigcar.png" path="/sprite/ui/"/>

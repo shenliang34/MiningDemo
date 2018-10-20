@@ -1,6 +1,6 @@
 var Games;
 (function (Games) {
-    var User = /** @class */ (function () {
+    var User = (function () {
         function User() {
             this.curBagCarNum = 0;
             this.curCars = [];
@@ -21,11 +21,11 @@ var Games;
         User.prototype.initShopData = function () {
             this.shopDatas = [];
             var scale = [0.8, 0.85, 0.9, 0.95, 1];
-            this.shopDatas.push(new Games.ShopData(1, 10, 0.4, 30, 0.65, 12, 1));
-            this.shopDatas.push(new Games.ShopData(2, 100, 4, 40, 0.6, 160, 10));
-            this.shopDatas.push(new Games.ShopData(3, 500, 16, 50, 0.65, 800, 50));
-            this.shopDatas.push(new Games.ShopData(4, 1000, 25, 70, 0.7, 1750, 100));
-            this.shopDatas.push(new Games.ShopData(5, 5000, 100, 90, 0.8, 9000, 150));
+            this.shopDatas.push(new Games.ShopData(1, 10, 0.4, 30, 0.8, 12, 1));
+            this.shopDatas.push(new Games.ShopData(2, 100, 4, 40, 0.85, 160, 10));
+            this.shopDatas.push(new Games.ShopData(3, 500, 16, 50, 0.9, 800, 50));
+            this.shopDatas.push(new Games.ShopData(4, 1000, 25, 70, 0.95, 1750, 100));
+            this.shopDatas.push(new Games.ShopData(5, 5000, 100, 90, 10, 9000, 150));
         };
         Object.defineProperty(User.prototype, "isMaxCar", {
             get: function () {
