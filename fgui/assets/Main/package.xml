@@ -51,9 +51,9 @@
     <image id="aiq552" name="cancle.png" path="/sprite/ui/"/>
     <image id="aiq553" name="sure.png" path="/sprite/ui/"/>
     <component id="aiq554" name="CommonBtn.xml" path="/" exported="true"/>
-    <movieclip id="aiq555" name="MaoYan.jta" path="/movieclip/"/>
     <image id="aiq556" name="shanguang.png" path="/sprite/effect/flash/"/>
     <component id="aiq557" name="FlashEffect.xml" path="/movieclip/" exported="true"/>
+    <movieclip id="104dt58" name="MaoYan.jta" path="/movieclip/" exported="true"/>
   </resources>
   <publish name="Main" genCode="true"/>
 </packageDescription>

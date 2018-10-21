@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
-  <controller name="c_visible_mapyan" pages="0,,1," selected="0"/>
+  <controller name="c_visible_mapyan" pages="0,,1," selected="1"/>
   <displayList>
     <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
@@ -56,10 +56,10 @@
     <graph id="n74_f4vo" name="endPos11" xy="614,97" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n75_f4vo" name="endPos12" xy="685,179" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <graph id="n76_f4vo" name="endPos13" xy="733,299" size="10,10" alpha="0" type="rect" lineSize="0"/>
-    <movieclip id="n66_gx8n" name="n66" src="aiq555" fileName="movieclip/MaoYan.jta" xy="403,1047" scale="0.6,0.6">
+    <movieclip id="n93_8bs6" name="n93" src="104dt58" fileName="movieclip/MaoYan.jta" xy="403,775">
       <gearDisplay controller="c_visible_mapyan" pages="1"/>
     </movieclip>
-    <movieclip id="n93_8bs6" name="n93" src="aiq555" fileName="movieclip/MaoYan.jta" xy="403,1091" scale="0.6,0.6">
+    <movieclip id="n94_104dt" name="n94" src="104dt58" fileName="movieclip/MaoYan.jta" xy="403,845">
       <gearDisplay controller="c_visible_mapyan" pages="1"/>
     </movieclip>
   </displayList>
