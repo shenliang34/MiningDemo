@@ -11,7 +11,7 @@ namespace Games
         constructor()
         {
             //初始化微信小游戏适配
-            Laya.MiniAdpter.init();
+            // Laya.MiniAdpter.init();
             //初始化引擎
             Laya.init(1080, 1920, Laya.WebGL);
 
@@ -62,23 +62,23 @@ namespace Games
             // hold.autoSize = fairygui.AutoSizeType.Both;
             // hold.setXY(Laya.stage.width - hold.width >> 1, 100)
             // fairygui.GRoot.inst.addChild(hold)
-
-            this.loadText = new Laya.Text();
-            this.loadText.text = "Loading...";
-            this.loadText.color = "#ffffff"
-            this.loadText.fontSize = 40;
-            this.loadText.y = Laya.stage.height - this.loadText.height - 150;
-            this.loadText.x = Laya.stage.width - this.loadText.width >> 1;
-            this.loadText.align = "center";
-            this.loadText.valign = "middle";
-            this.loadText.autoSize = true;
-            Laya.stage.addChild(this.loadText);
-
-            // //
-            Laya.stage.scaleMode = laya.display.Stage.SCALE_SHOWALL
+            Laya.stage.scaleMode = laya.display.Stage.SCALE_FIXED_AUTO
             Laya.stage.alignH = "center";
             Laya.stage.alignV = "center";
             Laya.stage.bgColor = "#000000"
+
+            this.loadText = new Laya.Text();
+            this.loadText.autoSize = true;
+            this.loadText.color = "#ffffff"
+            this.loadText.fontSize = 40;
+            Laya.stage.addChild(this.loadText);
+            this.loadText.align = "center";
+            this.loadText.valign = "middle";
+            // this.loadText.text = "Loading...";
+            this.loadText.y = Laya.stage.height - this.loadText.height - 150;
+            this.loadText.x = Laya.stage.width - this.loadText.width >> 1;
+
+            // //
             // Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
 
             Laya.loader.load([
@@ -157,6 +157,7 @@ namespace Games
                 //
                 let uiMain = <GameWindow>GameWindow.createInstance();
                 fairygui.GRoot.inst.addChild(uiMain);
+                uiMain.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
                 uiMain.show();
             }
         }

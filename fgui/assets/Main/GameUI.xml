@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920">
-  <controller name="c_visible_mapyan" pages="0,,1," selected="1"/>
+  <controller name="c_visible_mapyan" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n0_gcz4" name="n0" src="gcz4d" fileName="sprite/bg/ditu.png" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <image id="n2_heeq" name="gold1" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101"/>
-    <image id="n53_id72" name="gold2" src="gcz43" fileName="sprite/element/jinzi.png" xy="4,279"/>
-    <image id="n54_id72" name="gold3" src="gcz43" fileName="sprite/element/jinzi.png" xy="433,19"/>
-    <image id="n67_nux1" name="gold4" src="gcz43" fileName="sprite/element/jinzi.png" xy="476,222"/>
-    <image id="n68_nux1" name="gold5" src="gcz43" fileName="sprite/element/jinzi.png" xy="-90,48"/>
     <component id="n69_f4vo" name="starContainer" src="l37146" fileName="Container.xml" xy="1,0" size="1080,1920"/>
     <component id="n9_l371" name="container" src="l37146" fileName="Container.xml" xy="0,0" size="1080,1920" locked="true"/>
     <image id="n3_heeq" name="n3" src="gcz42" fileName="sprite/element/guangchang.png" xy="350,1131" scale="2.5,2.5"/>
     <graph id="n52_ennx" name="npcPos" xy="118,1661" size="10,10" alpha="0" type="rect" lineSize="0"/>
     <component id="n55_id72" name="coin" src="id724y" fileName="CoinItem.xml" xy="875,31" pivot="1,0" size="172,65">
+      <relation target="" sidePair="right-right,top-top"/>
       <Label title="1111"/>
     </component>
     <graph id="n58_id72" name="startPos1" xy="825,1396" size="10,10" alpha="0" type="rect" lineSize="0"/>
@@ -62,5 +58,13 @@
     <movieclip id="n94_104dt" name="n94" src="104dt58" fileName="movieclip/MaoYan.jta" xy="403,845">
       <gearDisplay controller="c_visible_mapyan" pages="1"/>
     </movieclip>
+    <image id="n2_heeq" name="gold1" src="gcz43" fileName="sprite/element/jinzi.png" xy="96,101" group="n95_rtw0"/>
+    <image id="n53_id72" name="gold2" src="gcz43" fileName="sprite/element/jinzi.png" xy="4,279" group="n95_rtw0"/>
+    <image id="n54_id72" name="gold3" src="gcz43" fileName="sprite/element/jinzi.png" xy="433,19" group="n95_rtw0"/>
+    <image id="n67_nux1" name="gold4" src="gcz43" fileName="sprite/element/jinzi.png" xy="476,222" group="n95_rtw0"/>
+    <image id="n68_nux1" name="gold5" src="gcz43" fileName="sprite/element/jinzi.png" xy="-90,48" group="n95_rtw0"/>
+    <group id="n95_rtw0" name="n95" xy="-90,19" size="1096,580" advanced="true">
+      <relation target="" sidePair="left-left,top-top"/>
+    </group>
   </displayList>
 </component>
