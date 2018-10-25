@@ -3,7 +3,7 @@
 */
 var Games;
 (function (Games) {
-    var ShopData = (function () {
+    var ShopData = /** @class */ (function () {
         function ShopData(index, price, daily, schedule, scale, total, suanli) {
             this.isBuyed = false;
             this.price = 10; //价格

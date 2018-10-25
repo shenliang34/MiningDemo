@@ -1,7 +1,15 @@
 var Games;
 (function (Games) {
-    var User = (function () {
+    var User = /** @class */ (function () {
         function User() {
+            // public road1: Road = new Road();
+            // public road2: Road = new Road();
+            // public road3: Road = new Road();
+            // public road4: Road = new Road();
+            // public road5: Road = new Road();
+            this.authorization = "";
+            this.appId = "7269076665587380";
+            this.appKey = "4c8rz2Zouw5bmAO3RDzL5yu1hUDBPKpS";
             this.curBagCarNum = 0;
             this.curCars = [];
             this.gold = 0;

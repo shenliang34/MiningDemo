@@ -26,7 +26,7 @@ module Games
 		public static APP_ID: string = "7269076665587380";
 		public static APP_KEY: string = "4c8rz2Zouw5bmAO3RDzL5yu1hUDBPKpS";
 
-		public static KJ_LIST_URL: string = "https://www.okhehe.com/api/member/kj/list";
+		public static KJ_LIST_URL: string = "https://www.okhehe.com/api/member/kj/lists";
 		public static KJ_BUY_URL: string = "https://www.okhehe.com/api/member/kj/buy";
 
 		private httpRequest: HttpRequest;
@@ -35,9 +35,9 @@ module Games
 		constructor()
 		{
 			this.httpRequest = new HttpRequest();
-			this.httpRequest.on(Laya.Event.PROGRESS, this, this.onHttpRequestProgress);
-			this.httpRequest.on(Laya.Event.COMPLETE, this, this.onHttpRequestComplete);
-			this.httpRequest.on(Laya.Event.ERROR, this, this.onHttpRequestError);
+			this.httpRequest.once(Laya.Event.PROGRESS, this, this.onHttpRequestProgress);
+			this.httpRequest.once(Laya.Event.COMPLETE, this, this.onHttpRequestComplete);
+			this.httpRequest.once(Laya.Event.ERROR, this, this.onHttpRequestError);
 		}
 
 		private onHttpRequestError(e): void
@@ -74,7 +74,8 @@ module Games
 		 */
 		public sendUrl(url: string, data?: any, method?: string, responseType?: string, headers?: Array<any>): void
 		{
-			this.httpRequest.send(url, data, method, responseType, headers)
+			// this.httpRequest.send(url, "appid=" + user.appId, method, responseType, ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization])
+			this.httpRequest.send('http://xkxz.zhonghao.huo.inner.layabox.com/api/getData', 'name=myname&psword=xxx', 'post', 'text');
 		}
 	}
 }

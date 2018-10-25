@@ -3,7 +3,7 @@ var Loader = laya.net.Loader;
 var Stage = laya.display.Stage;
 var Games;
 (function (Games) {
-    var GameMain = (function () {
+    var GameMain = /** @class */ (function () {
         function GameMain() {
             //初始化微信小游戏适配
             Laya.MiniAdpter.init();
@@ -120,6 +120,7 @@ var Games;
                 Laya.stage.addChild(fairygui.GRoot.inst.displayObject);
                 Main.MainBinder.bindAll();
                 Games.User.bindUserAll();
+                Games.NetWork.getInstance.sendUrl(Games.NetWork.KJ_LIST_URL, { "appid": user.appId, "appkey": user.appKey, "authorization": user.authorization }, "head");
                 fairygui.UIPackage.addPackage("res/Main");
                 //
                 var uiMain = Games.GameWindow.createInstance();
@@ -135,16 +136,17 @@ var Games;
         return GameMain;
     }());
     Games.GameMain = GameMain;
-    new GameMain();
 })(Games || (Games = {}));
 //获得参数的方法
 var request = {
     QueryString: function (val) {
-        var uri = "window.location.search?name=1000";
+        var uri = window.location.search;
         var re = new RegExp("" + val + "=([^&?]*)", "ig");
         return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
     }
 };
-alert(request.QueryString("name"));
 var user = new Games.User();
+new Games.GameMain();
+user.authorization = request.QueryString("authorization") || "gesh";
+console.log(user.authorization);
 //# sourceMappingURL=GameMain.js.map
