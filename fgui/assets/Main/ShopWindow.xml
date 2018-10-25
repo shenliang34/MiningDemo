@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920" designImageOffsetX="121" designImageOffsetY="324">
-  <controller name="c_show_sure" pages="0,hide,1,show" selected="1"/>
+  <controller name="c_show_sure" pages="0,hide,1,show" selected="0"/>
   <displayList>
     <graph id="n3_ennx" name="n3" xy="0,0" size="1080,1920" alpha="0.64" type="rect" lineSize="0" fillColor="#ff000000">
       <gearDisplay controller="c_show_sure" pages="0"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n0_ennx" name="panel" src="ennx4v" fileName="ShopPanel.xml" xy="161,442" pivot="0.5,0.5">
+    <component id="n0_ennx" name="panel" src="ennx4v" fileName="ShopPanel.xml" xy="161,442" pivot="0.5,0.5" scale="1.4,1.4">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
     <graph id="n5_id72" name="n5" xy="0,0" size="1080,1920" alpha="0.64" type="rect" lineSize="0" fillColor="#ff000000">
@@ -19,10 +19,10 @@
     </component>
   </displayList>
   <transition name="t0">
-    <item time="0" type="Scale" target="n0_ennx" tween="true" startValue="0.3,0.3" endValue="1,1" duration="7"/>
+    <item time="0" type="Scale" target="n0_ennx" tween="true" startValue="0.3,0.3" endValue="1.4,1.4" duration="7"/>
   </transition>
   <transition name="t1">
-    <item time="0" type="Scale" target="n0_ennx" tween="true" startValue="1,1" endValue="0,0" duration="24"/>
+    <item time="0" type="Scale" target="n0_ennx" tween="true" startValue="1.4,1.4" endValue="0,0" duration="24"/>
   </transition>
   <transition name="t2">
     <item time="0" type="Scale" target="n4_id72" tween="true" startValue="0,0" endValue="1,1" duration="6"/>

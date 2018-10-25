@@ -8,6 +8,7 @@ module Games
 		protected constructFromXML(xml: any): void
 		{
 			super.constructFromXML(xml);
+
 		}
 
 		constructor()

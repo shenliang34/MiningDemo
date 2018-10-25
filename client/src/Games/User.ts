@@ -9,9 +9,14 @@ namespace Games
         // public road4: Road = new Road();
         // public road5: Road = new Road();
 
+        public authorization: string = "";
+        public appId: string = "7269076665587380";
+        public appKey: string = "4c8rz2Zouw5bmAO3RDzL5yu1hUDBPKpS";
+
         public roads: Array<Road>;
 
         public shopDatas: Array<ShopData>;
+        private _root: fairygui.GRoot;
         public shopWindow: ShopWindow;
         public gameWindow: GameWindow;
 
@@ -19,6 +24,17 @@ namespace Games
         public curCars: Array<Car> = [];
 
         public gold: number = 0;
+
+        public get root(): fairygui.GRoot
+        {
+            if (this._root == null)
+            {
+                this._root = new fairygui.GRoot();
+                this._root.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
+                fairygui.GRoot.inst.addChild(this._root);
+            }
+            return this._root;
+        }
 
         constructor()
         {

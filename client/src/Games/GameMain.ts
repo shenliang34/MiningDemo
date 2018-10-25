@@ -75,9 +75,9 @@ namespace Games
             Laya.stage.addChild(this.loadText);
 
             // //
-            Laya.stage.scaleMode = laya.display.Stage.SCALE_SHOWALL
+            Laya.stage.scaleMode = laya.display.Stage.SCALE_FIXED_AUTO;
             Laya.stage.alignH = "center";
-            Laya.stage.alignV = "center";
+            Laya.stage.alignV = "top";
             Laya.stage.bgColor = "#000000"
             // Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
 
@@ -106,10 +106,6 @@ namespace Games
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
                 { url: "res/Main@atlas0_1.png", type: Laya.Loader.IMAGE },
-                // { url: "sound/Main@p3jo5a.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo5b.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo58.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo59.mp3", type: Laya.Loader.SOUND },
                 { url: "res/atlas/anima/che1.atlas" },
                 { url: "res/atlas/anima/che2.atlas" },
                 { url: "res/atlas/anima/che3.atlas" },
@@ -153,10 +149,13 @@ namespace Games
                 Main.MainBinder.bindAll();
                 User.bindUserAll();
 
+                NetWork.getInstance.sendUrl(NetWork.KJ_LIST_URL, { "appid": user.appId, "appkey": user.appKey, "authorization": user.authorization });
+
                 fairygui.UIPackage.addPackage("res/Main");
                 //
                 let uiMain = <GameWindow>GameWindow.createInstance();
-                fairygui.GRoot.inst.addChild(uiMain);
+                user.root.addChild(uiMain);
+                uiMain.setSize(user.root.width, user.root.height);
                 uiMain.show();
             }
         }
@@ -168,7 +167,20 @@ namespace Games
             this.loadComplete = true;
         }
     }
-
-    new GameMain();
 }
+
+//获得参数的方法
+var request =
+    {
+        QueryString: function (val)
+        {
+            var uri = window.location.search;
+            var re = new RegExp("" + val + "=([^&?]*)", "ig");
+            return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+        }
+    }
+
 var user = new Games.User();
+new Games.GameMain();
+user.authorization = request.QueryString("authorization");
+console.log(user.authorization);

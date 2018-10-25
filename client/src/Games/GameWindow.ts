@@ -168,7 +168,8 @@ namespace Games
             if (this._shopWindow == null)
             {
                 this._shopWindow = ShopWindow.createInstance();
-                fairygui.GRoot.inst.addChild(this._shopWindow);
+                user.root.addChild(this._shopWindow);
+                this._shopWindow.setSize(user.root.width, user.root.height);
             }
             return this._shopWindow;
         }

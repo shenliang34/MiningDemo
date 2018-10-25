@@ -1,6 +1,6 @@
 var Games;
 (function (Games) {
-    var User = /** @class */ (function () {
+    var User = (function () {
         function User() {
             this.curBagCarNum = 0;
             this.curCars = [];
@@ -8,6 +8,18 @@ var Games;
             this.roads = [];
             this.initShopData();
         }
+        Object.defineProperty(User.prototype, "root", {
+            get: function () {
+                if (this._root == null) {
+                    this._root = new fairygui.GRoot();
+                    this._root.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
+                    fairygui.GRoot.inst.addChild(this._root);
+                }
+                return this._root;
+            },
+            enumerable: true,
+            configurable: true
+        });
         // 绑定自定义
         User.bindUserAll = function () {
             fairygui.UIObjectFactory.setPackageItemExtension(Main.UI_GameUI.URL, Games.GameWindow);

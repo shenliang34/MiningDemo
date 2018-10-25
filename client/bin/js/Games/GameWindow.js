@@ -1,16 +1,8 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Games;
 (function (Games) {
     var Dirction;
@@ -25,7 +17,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = /** @class */ (function (_super) {
+    var GameWindow = (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -140,7 +132,8 @@ var Games;
             get: function () {
                 if (this._shopWindow == null) {
                     this._shopWindow = Games.ShopWindow.createInstance();
-                    fairygui.GRoot.inst.addChild(this._shopWindow);
+                    user.root.addChild(this._shopWindow);
+                    this._shopWindow.setSize(user.root.width, user.root.height);
                 }
                 return this._shopWindow;
             },
@@ -153,14 +146,6 @@ var Games;
         //显示
         GameWindow.prototype.show = function () {
             if (this.curCars.length < 5) {
-                // this.createCar();
-                // setTimeout(() =>
-                // {
-                // this.createCar()
-                // this.createCar()
-                // this.createCar()
-                // }, 6000);
-                // }
             }
         };
         //创建一个

@@ -55,8 +55,8 @@ module Main {
 		public m_endPos11:fairygui.GGraph;
 		public m_endPos12:fairygui.GGraph;
 		public m_endPos13:fairygui.GGraph;
-		public m_n66:fairygui.GMovieClip;
 		public m_n93:fairygui.GMovieClip;
+		public m_n94:fairygui.GMovieClip;
 
 		public static URL:string = "ui://43jwvuthgcz40";
 
@@ -122,8 +122,8 @@ module Main {
 			this.m_endPos11 = <fairygui.GGraph><any>(this.getChildAt(47));
 			this.m_endPos12 = <fairygui.GGraph><any>(this.getChildAt(48));
 			this.m_endPos13 = <fairygui.GGraph><any>(this.getChildAt(49));
-			this.m_n66 = <fairygui.GMovieClip><any>(this.getChildAt(50));
-			this.m_n93 = <fairygui.GMovieClip><any>(this.getChildAt(51));
+			this.m_n93 = <fairygui.GMovieClip><any>(this.getChildAt(50));
+			this.m_n94 = <fairygui.GMovieClip><any>(this.getChildAt(51));
 		}
 	}
 }

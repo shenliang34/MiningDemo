@@ -3,7 +3,7 @@
 */
 var Games;
 (function (Games) {
-    var SoundManager = /** @class */ (function () {
+    var SoundManager = (function () {
         function SoundManager() {
         }
         SoundManager.playSound = function (url, stopAllSound, loops, soundVolume) {
