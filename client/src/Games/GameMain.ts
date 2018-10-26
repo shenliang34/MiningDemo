@@ -149,8 +149,6 @@ namespace Games
                 Main.MainBinder.bindAll();
                 User.bindUserAll();
 
-                NetWork.getInstance.sendUrl(NetWork.KJ_LIST_URL, { "appid": user.appId, "appkey": user.appKey, "authorization": user.authorization }, "head");
-
                 fairygui.UIPackage.addPackage("res/Main");
                 //
                 let uiMain = <GameWindow>GameWindow.createInstance();
@@ -181,6 +179,7 @@ var request =
     }
 
 var user = new Games.User();
-new Games.GameMain();
+// new Games.GameMain();
 user.authorization = request.QueryString("authorization") || "gesh";
+Games.NetWork.getInstance.sendUrl(Games.NetWork.KJ_LIST_URL, { "appid": user.appId, "appkey": user.appKey, "authorization": user.authorization }, "post");
 console.log(user.authorization);

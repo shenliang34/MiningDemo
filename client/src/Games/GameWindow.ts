@@ -209,7 +209,7 @@ namespace Games
             {
                 car = new Car(index);
                 car.setParent(this);
-                user.gold += user.shopDatas[index - 1].daily;
+                user.gold += user.shopDatas[index - 1].dayOutPut;
                 this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 this.curCars.push(car);

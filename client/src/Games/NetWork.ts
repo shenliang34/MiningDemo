@@ -35,9 +35,9 @@ module Games
 		constructor()
 		{
 			this.httpRequest = new HttpRequest();
-			this.httpRequest.once(Laya.Event.PROGRESS, this, this.onHttpRequestProgress);
-			this.httpRequest.once(Laya.Event.COMPLETE, this, this.onHttpRequestComplete);
-			this.httpRequest.once(Laya.Event.ERROR, this, this.onHttpRequestError);
+			this.httpRequest.on(Laya.Event.PROGRESS, this, this.onHttpRequestProgress);
+			this.httpRequest.on(Laya.Event.COMPLETE, this, this.onHttpRequestComplete);
+			this.httpRequest.on(Laya.Event.ERROR, this, this.onHttpRequestError);
 		}
 
 		private onHttpRequestError(e): void
@@ -48,6 +48,17 @@ module Games
 		private onHttpRequestComplete(e): void
 		{
 			console.log(this.httpRequest.data);
+			switch (this.httpRequest.data)
+			{
+				case NetWork.KJ_LIST_URL:
+
+					break;
+
+				default:
+					break;
+			}
+
+			Game.event.dispatch(this.httpRequest.url, this.httpRequest.data);
 		}
 
 		private onHttpRequestProgress(e): void
@@ -72,10 +83,10 @@ module Games
 		 * @param responseType 
 		 * @param headers 
 		 */
-		public sendUrl(url: string, data?: any, method?: string, responseType?: string, headers?: Array<any>): void
+		public sendUrl(url: string, data?: any, method?: string): void
 		{
-			// this.httpRequest.send(url, "appid=" + user.appId, method, responseType, ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization])
-			this.httpRequest.send('http://xkxz.zhonghao.huo.inner.layabox.com/api/getData', 'name=myname&psword=xxx', 'post', 'text');
+			this.httpRequest.send(url, data, "post");
+			// this.httpRequest.send('http://xkxz.zhonghao.huo.inner.layabox.com/api/getData', 'name=myname&psword=xxx', 'post', 'text');
 		}
 	}
 }

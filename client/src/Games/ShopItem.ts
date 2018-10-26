@@ -54,10 +54,10 @@ module Games
 				this.m_c_state.selectedIndex = 0;
 			}
 			this.m_c_icon.selectedIndex = shopData.index - 1;
-			this.m_sec.text = "周期：" + shopData.schedule + "天";
+			this.m_sec.text = "周期：" + shopData.outPutDay + "天";
 			this.m_priece.text = "价格：" + shopData.price;
-			this.m_num.text = "算力：" + shopData.suanli;
-			this.m_daily.text = "日产属性：" + shopData.daily;
+			this.m_num.text = "算力：" + shopData.sl;
+			this.m_daily.text = "日产属性：" + shopData.dayOutPut;
 		}
 	}
 }

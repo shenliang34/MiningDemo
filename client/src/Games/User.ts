@@ -53,6 +53,20 @@ namespace Games
             fairygui.UIObjectFactory.setPackageItemExtension(Main.UI_SurePanel.URL, SurePanel);
         }
 
+        public formatCarDatas(data: any): void
+        {
+            this.shopDatas = [];
+            let scale = [0.8, 0.85, 0.9, 0.95, 1];
+            let src: Array<JSON> = data;
+            for (var index = 0; index < src.length; index++)
+            {
+                var element = src[index];
+                let carData = new ShopData();
+                carData.index = index + 1;
+                carData.dayOutPut = 
+            }
+        }
+
         public initShopData()
         {
             this.shopDatas = [];

@@ -1,6 +1,6 @@
 var Games;
 (function (Games) {
-    var User = /** @class */ (function () {
+    var User = (function () {
         function User() {
             // public road1: Road = new Road();
             // public road2: Road = new Road();

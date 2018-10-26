@@ -1,0 +1,10 @@
+/*
+* name;
+*/
+class GameEventKey
+{
+    constructor()
+    {
+
+    }
+}
