@@ -21,9 +21,9 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
-			this.m_list = <fairygui.GList><any>(this.getChildAt(1));
-			this.m_close = <UI_CloseBtn><any>(this.getChildAt(2));
+			this.m_n0 = <fairygui.GImage><any>(this.getChild("n0"));
+			this.m_list = <fairygui.GList><any>(this.getChild("list"));
+			this.m_close = <UI_CloseBtn><any>(this.getChild("close"));
 		}
 	}
 }

@@ -28,16 +28,16 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_c_state = this.getControllerAt(0);
-			this.m_c_icon = this.getControllerAt(1);
-			this.m_n0 = <fairygui.GLoader><any>(this.getChildAt(0));
-			this.m_icon = <fairygui.GLoader><any>(this.getChildAt(1));
-			this.m_priece = <fairygui.GTextField><any>(this.getChildAt(2));
-			this.m_num = <fairygui.GTextField><any>(this.getChildAt(3));
-			this.m_sec = <fairygui.GTextField><any>(this.getChildAt(4));
-			this.m_daily = <fairygui.GTextField><any>(this.getChildAt(5));
-			this.m_n6 = <fairygui.GLoader><any>(this.getChildAt(6));
-			this.m_buy = <UI_BuyBtn><any>(this.getChildAt(7));
+			this.m_c_state = this.getController("c_state");
+			this.m_c_icon = this.getController("c_icon");
+			this.m_n0 = <fairygui.GLoader><any>(this.getChild("n0"));
+			this.m_icon = <fairygui.GLoader><any>(this.getChild("icon"));
+			this.m_priece = <fairygui.GTextField><any>(this.getChild("priece"));
+			this.m_num = <fairygui.GTextField><any>(this.getChild("num"));
+			this.m_sec = <fairygui.GTextField><any>(this.getChild("sec"));
+			this.m_daily = <fairygui.GTextField><any>(this.getChild("daily"));
+			this.m_n6 = <fairygui.GLoader><any>(this.getChild("n6"));
+			this.m_buy = <UI_BuyBtn><any>(this.getChild("buy"));
 		}
 	}
 }

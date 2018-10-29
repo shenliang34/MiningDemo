@@ -1,5 +1,6 @@
 import Handler = laya.utils.Handler;
 import Loader = laya.net.Loader;
+import ResourceVersion = laya.net.ResourceVersion;
 import Stage = laya.display.Stage;
 namespace Games
 {
@@ -80,7 +81,16 @@ namespace Games
             Laya.stage.alignV = "top";
             Laya.stage.bgColor = "#000000"
             // Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
+            //设置版本控制类型为使用文件名映射的方式
+            // ResourceVersion.type = ResourceVersion.FILENAME_VERSION;
+            // //加载版本信息文件
+            // ResourceVersion.enable("version.json", Handler.create(this, this.beginLoad));
+            this.beginLoad();
 
+        }
+
+        beginLoad()
+        {
             Laya.loader.load([
                 "res/progressBar.png",
                 "res/progressBar$bar.png"
@@ -177,9 +187,12 @@ var request =
             return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
         }
     }
+var __console = console;
+__console.log = function (msg, ...params)
+{
 
+}
 var user = new Games.User();
-// new Games.GameMain();
-user.authorization = request.QueryString("authorization") || "gesh";
-Games.NetWork.getInstance.sendUrl(Games.NetWork.KJ_LIST_URL, { "appid": user.appId, "appkey": user.appKey, "authorization": user.authorization }, "post");
-console.log(user.authorization);
+new Games.GameMain();
+user.authorization = request.QueryString("authorization") || "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIiLCJhdWQiOiIiLCJpYXQiOjE1NDA1NjYxNjgsIm5iZiI6MTU0MDU2NjE2OCwiZXhwIjoxNTQwNTczMzY4LCJ1aWQiOjIsInVzZXJuYW1lIjoiMTM0MzA2NTI1MjUiLCJlbmNyeXB0IjoiT2hoRXUxIiwibG9naW5fa2V5IjoicVJ4OWNaT1VWVmk5aTF1MXpQd1Z1MkJJc3dGQjlYc3oifQ.aYNoj_d-Oe9sHxifeO1H0tzdBhf9QmlBxf9h1dRoynU";
+

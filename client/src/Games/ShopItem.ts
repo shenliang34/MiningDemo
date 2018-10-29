@@ -29,9 +29,9 @@ module Games
 				(<SurePanel>user.shopWindow.m_sure).show(() =>
 				{
 					this.shopData.isBuyed = true;
-					user.gameWindow.showTip("购买成功");
 					user.shopWindow.hide();
-					user.gameWindow.createCar(this.shopData.index);
+
+					NetWork.getInstance.sendBuy(this.shopData.index);
 				});
 			}
 		}
@@ -57,7 +57,7 @@ module Games
 			this.m_sec.text = "周期：" + shopData.outPutDay + "天";
 			this.m_priece.text = "价格：" + shopData.price;
 			this.m_num.text = "算力：" + shopData.sl;
-			this.m_daily.text = "日产属性：" + shopData.dayOutPut;
+			this.m_daily.text = "日产：" + shopData.dayOutPut;
 		}
 	}
 }

@@ -1,14 +1,22 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 /**
 * name
 */
 var Games;
 (function (Games) {
-    var ShopPanel = (function (_super) {
+    var ShopPanel = /** @class */ (function (_super) {
         __extends(ShopPanel, _super);
         function ShopPanel() {
             return _super.call(this) || this;
@@ -16,14 +24,14 @@ var Games;
         ShopPanel.prototype.constructFromXML = function (xml) {
             _super.prototype.constructFromXML.call(this, xml);
             this.m_list.itemRenderer = Handler.create(this, this.updateShopItem, null, false);
+            this.m_list.numItems = user.typeKeys.getValues().length;
         };
         ShopPanel.prototype.updateShopItem = function (index, item) {
-            item.updateView(user.shopDatas[index]);
+            item.updateView(user.typeKeys.getValues()[index]);
         };
         ShopPanel.prototype.show = function (shopWindow) {
             this.shopWindow = shopWindow;
             this.m_close.onClick(this, this.onClickCloseBtn);
-            this.m_list.numItems = user.shopDatas.length;
         };
         ShopPanel.prototype.onClickCloseBtn = function () {
             this.hide();

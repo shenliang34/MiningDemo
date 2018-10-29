@@ -12,11 +12,13 @@ module Games
 			super.constructFromXML(xml);
 
 			this.m_list.itemRenderer = Handler.create(this, this.updateShopItem, null, false);
+
+			this.m_list.numItems = user.typeKeys.getValues().length;
 		}
 
 		private updateShopItem(index: number, item: ShopItem): void
 		{
-			item.updateView(user.shopDatas[index]);
+			item.updateView(user.typeKeys.getValues()[index]);
 		}
 
 		constructor()
@@ -28,8 +30,6 @@ module Games
 		{
 			this.shopWindow = shopWindow;
 			this.m_close.onClick(this, this.onClickCloseBtn);
-
-			this.m_list.numItems = user.shopDatas.length;
 		}
 
 		private onClickCloseBtn(): void

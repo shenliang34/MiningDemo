@@ -3,7 +3,7 @@
 */
 var Games;
 (function (Games) {
-    var SoundManager = (function () {
+    var SoundManager = /** @class */ (function () {
         function SoundManager() {
         }
         SoundManager.playSound = function (url, stopAllSound, loops, soundVolume) {
@@ -15,6 +15,10 @@ var Games;
             }
             Laya.SoundManager.soundVolume = soundVolume;
             Laya.SoundManager.playSound(url, loops);
+        };
+        SoundManager.playMusic = function () {
+            Laya.SoundManager.musicVolume = Games.SoundKey.bg_vol;
+            Laya.SoundManager.playMusic(Games.SoundKey.bg, 0);
         };
         SoundManager.stopSound = function (url) {
             Laya.SoundManager.stopSound(url);

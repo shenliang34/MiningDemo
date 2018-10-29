@@ -27,15 +27,15 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_c_show_sure = this.getControllerAt(0);
-			this.m_n3 = <fairygui.GGraph><any>(this.getChildAt(0));
-			this.m_panel = <UI_ShopPanel><any>(this.getChildAt(1));
-			this.m_n5 = <fairygui.GGraph><any>(this.getChildAt(2));
-			this.m_sure = <UI_SurePanel><any>(this.getChildAt(3));
-			this.m_t0 = this.getTransitionAt(0);
-			this.m_t1 = this.getTransitionAt(1);
-			this.m_t2 = this.getTransitionAt(2);
-			this.m_t3 = this.getTransitionAt(3);
+			this.m_c_show_sure = this.getController("c_show_sure");
+			this.m_n3 = <fairygui.GGraph><any>(this.getChild("n3"));
+			this.m_panel = <UI_ShopPanel><any>(this.getChild("panel"));
+			this.m_n5 = <fairygui.GGraph><any>(this.getChild("n5"));
+			this.m_sure = <UI_SurePanel><any>(this.getChild("sure"));
+			this.m_t0 = this.getTransition("t0");
+			this.m_t1 = this.getTransition("t1");
+			this.m_t2 = this.getTransition("t2");
+			this.m_t3 = this.getTransition("t3");
 		}
 	}
 }

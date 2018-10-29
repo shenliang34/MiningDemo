@@ -1,21 +1,30 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 /**
 * name
 */
 var Games;
 (function (Games) {
     var Point = Laya.Point;
-    var Car = (function (_super) {
+    var Car = /** @class */ (function (_super) {
         __extends(Car, _super);
-        function Car(aniIndex) {
+        function Car(data) {
             var _this = _super.call(this) || this;
+            _this.data = data;
             _this.nextPosList = [];
             _this.stayPosList = [];
-            _this.onLoaded(aniIndex);
+            _this.onLoaded(_this.data.index);
             return _this;
             // Laya.loader.load("res/atlas/anima/che1.atlas", Handler.create(this, this.onLoaded));
         }
@@ -49,8 +58,7 @@ var Games;
             for (var index = 1; index <= 13; index++) {
                 var element = new Point();
                 var gobject = this.window.getChild("endPos" + index);
-                element.x = gobject.x;
-                element.y = gobject.y;
+                gobject.localToGlobal(0, 0, element);
                 this.stayPosList.push(element);
             }
             this.startTween();
@@ -83,7 +91,7 @@ var Games;
                     // effect.scale(0.2, 0.2);
                     delay = 5000;
                     Games.SoundManager.stopSound(Games.SoundKey.car_move);
-                    Games.SoundManager.playSound(Games.SoundKey.wa_guangsu, null, 1);
+                    Games.SoundManager.playSound(Games.SoundKey.wa_guangsu, null, 1, Games.SoundKey.wa_guangsu_vol);
                 }
                 setTimeout(function () {
                     if (effect_1) {
@@ -95,7 +103,7 @@ var Games;
                         //
                         _this.startTween();
                     }));
-                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, 0.1);
+                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, Games.SoundKey.car_move_vol);
                     // Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
                 }, delay);
             }
@@ -113,7 +121,7 @@ var Games;
                 // user.curBagCarNum++;
                 // this.updateEffectSmoke();
                 this.anima.stop();
-                Games.SoundManager.playSound(Games.SoundKey.bag_com, true);
+                Games.SoundManager.playSound(Games.SoundKey.bag_com, true, 1, Games.SoundKey.bag_com_vol);
                 setTimeout(function () {
                     user.curBagCarNum--;
                     // this.updateEffectSmoke();
@@ -139,6 +147,7 @@ var Games;
             get: function () {
                 for (var index = 0; index < this.stayPosList.length; index++) {
                     var element = this.stayPosList[index];
+                    console.log(element.distance(this.anima.x, this.anima.y));
                     if (element.distance(this.anima.x, this.anima.y) < 1) {
                         return true;
                     }

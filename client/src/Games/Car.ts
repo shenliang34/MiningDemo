@@ -13,14 +13,17 @@ module Games
 		private nextPosList: Array<Point>;
 		private stayPosList: Array<Point>;
 
-		constructor(aniIndex: number)
+		private data: ShopData;
+
+		constructor(data: ShopData)
 		{
 			super();
+			this.data = data;
 
 			this.nextPosList = [];
 			this.stayPosList = [];
 
-			this.onLoaded(aniIndex);
+			this.onLoaded(this.data.index);
 			// Laya.loader.load("res/atlas/anima/che1.atlas", Handler.create(this, this.onLoaded));
 		}
 
@@ -68,8 +71,7 @@ module Games
 			{
 				var element = new Point();
 				let gobject = this.window.getChild("endPos" + index);
-				element.x = gobject.x;
-				element.y = gobject.y;
+				gobject.localToGlobal(0, 0, element);
 				this.stayPosList.push(element);
 			}
 
@@ -109,7 +111,7 @@ module Games
 					// effect.scale(0.2, 0.2);
 					delay = 5000;
 					SoundManager.stopSound(SoundKey.car_move);
-					SoundManager.playSound(SoundKey.wa_guangsu, null, 1);
+					SoundManager.playSound(SoundKey.wa_guangsu, null, 1, SoundKey.wa_guangsu_vol);
 				}
 
 				setTimeout(() =>
@@ -126,7 +128,7 @@ module Games
 						this.startTween();
 					}));
 
-					SoundManager.playSound(SoundKey.car_move, null, 0, 0.1);
+					SoundManager.playSound(SoundKey.car_move, null, 0, SoundKey.car_move_vol);
 					// Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
 				}, delay)
 			}
@@ -148,7 +150,7 @@ module Games
 
 				this.anima.stop();
 
-				SoundManager.playSound(SoundKey.bag_com, true);
+				SoundManager.playSound(SoundKey.bag_com, true, 1, SoundKey.bag_com_vol);
 				setTimeout(() =>
 				{
 					user.curBagCarNum--;
@@ -179,6 +181,7 @@ module Games
 			for (var index = 0; index < this.stayPosList.length; index++)
 			{
 				var element = this.stayPosList[index];
+				console.log(element.distance(this.anima.x, this.anima.y));
 				if (element.distance(this.anima.x, this.anima.y) < 1)
 				{
 					return true;

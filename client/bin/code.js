@@ -69003,6 +69003,133 @@ if (typeof define === 'function' && define.amd) {
         }
     });
 }
+/**
+ * 事件
+ */
+var Emitter = /** @class */ (function () {
+    function Emitter(isDispatchName) {
+        if (isDispatchName === void 0) { isDispatchName = false; }
+        /** 监听数组 */
+        this.listeners = {};
+        /** 是否把事件名称抛当参数抛给回调 */
+        this.isDispatchName = false;
+        this.isDispatchName = isDispatchName;
+    }
+    /**
+     * 注册事件
+     * @param name 事件名称
+     * @param callback 回调函数
+     * @param context 上下文
+     */
+    Emitter.prototype.add = function (name, callback, context) {
+        var hasRegistered = false;
+        var observers = this.listeners[name];
+        if (!observers) {
+            this.listeners[name] = [];
+        }
+        else {
+            var length_1 = observers.length;
+            for (var i = 0; i < length_1; i++) {
+                var observer = observers[i];
+                if (observer.comparAll(callback, context)) {
+                    hasRegistered = true;
+                }
+            }
+        }
+        if (!hasRegistered) {
+            this.listeners[name].push(new Observer(callback, context));
+        }
+    };
+    /**
+     * 移除事件
+     * @param name 事件名称
+     * @param callback 回调函数
+     * @param context 上下文
+     */
+    Emitter.prototype.remove = function (name, callback, context) {
+        var observers = this.listeners[name];
+        if (!observers)
+            return;
+        var length = observers.length;
+        for (var i = 0; i < length; i++) {
+            var observer = observers[i];
+            if (observer.compar(context)) {
+                observers.splice(i, 1);
+                break;
+            }
+        }
+        if (observers.length == 0) {
+            delete this.listeners[name];
+        }
+    };
+    /**
+     * 发送事件
+     * @param name 事件名称
+     */
+    Emitter.prototype.dispatch = function (name) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        var observers = this.listeners[name];
+        if (!observers)
+            return;
+        var length = observers.length;
+        for (var i = length - 1; i >= 0; i--) {
+            var observer = observers[i];
+            if (this.isDispatchName) {
+                observer.notify.apply(observer, [name].concat(args));
+            }
+            else {
+                observer.notify.apply(observer, args);
+            }
+        }
+    };
+    return Emitter;
+}());
+/**
+ * 观察者
+ */
+var Observer = /** @class */ (function () {
+    function Observer(callback, context) {
+        /** 回调函数 */
+        this.callback = null;
+        /** 上下文 */
+        this.context = null;
+        var self = this;
+        self.callback = callback;
+        self.context = context;
+    }
+    /**
+     * 发送通知
+     * @param args 不定参数
+     */
+    Observer.prototype.notify = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var _a;
+        var self = this;
+        (_a = self.callback).call.apply(_a, [self.context].concat(args));
+    };
+    /**
+     * 上下文比较
+     * @param context 上下文
+     */
+    Observer.prototype.compar = function (context) {
+        return context == this.context;
+    };
+    /**
+     * 上下文比较
+     * @param context 上下文
+     */
+    Observer.prototype.comparAll = function (callback, context) {
+        return callback == this.callback && context == this.context;
+    };
+    return Observer;
+}());
+//# sourceMappingURL=Emitter.js.map
 /** This is an automatically generated class by FairyGUI. Please do not modify it. **/
 var Main;
 (function (Main) {
@@ -69032,12 +69159,33 @@ var Games;
 (function (Games) {
     var User = /** @class */ (function () {
         function User() {
+            // public road1: Road = new Road();
+            // public road2: Road = new Road();
+            // public road3: Road = new Road();
+            // public road4: Road = new Road();
+            // public road5: Road = new Road();
+            this.authorization = "";
+            this.appId = "7269076665587380";
+            this.appKey = "4c8rz2Zouw5bmAO3RDzL5yu1hUDBPKpS";
             this.curBagCarNum = 0;
             this.curCars = [];
             this.gold = 0;
+            this.typeKeys = new Dictionary();
             this.roads = [];
             this.initShopData();
         }
+        Object.defineProperty(User.prototype, "root", {
+            get: function () {
+                if (this._root == null) {
+                    this._root = new fairygui.GRoot();
+                    this._root.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
+                    fairygui.GRoot.inst.addChild(this._root);
+                }
+                return this._root;
+            },
+            enumerable: true,
+            configurable: true
+        });
         // 绑定自定义
         User.bindUserAll = function () {
             fairygui.UIObjectFactory.setPackageItemExtension(Main.UI_GameUI.URL, Games.GameWindow);
@@ -69048,14 +69196,85 @@ var Games;
             fairygui.UIObjectFactory.setPackageItemExtension(Main.UI_CoinMinItem.URL, Games.CoinMinItem);
             fairygui.UIObjectFactory.setPackageItemExtension(Main.UI_SurePanel.URL, Games.SurePanel);
         };
+        User.prototype.formatCarDatas = function (data) {
+            this.shopDatas = [];
+            var scale = [0.8, 0.85, 0.9, 0.95, 1];
+            var src = data;
+            for (var index = 0; index < src.length; index++) {
+                var element = src[index];
+                var carData = new Games.ShopData();
+                var name_1 = element["name"];
+                var srcData = this.typeKeys.getValue(name_1);
+                if (srcData) {
+                    carData.index = srcData.index;
+                }
+                carData.dayOutPut = element["day_output"];
+                carData.sl = element["sl"];
+                carData.outPutDay = element["output_day"];
+                carData.price = element["ing_day"];
+                this.shopDatas.push(carData);
+            }
+        };
+        User.prototype.addData = function (srcData) {
+            var carData = new Games.ShopData();
+            if (srcData) {
+                carData.index = srcData.index;
+                carData.dayOutPut = srcData.dayOutPut;
+                carData.sl = srcData.sl;
+                carData.outPutDay = srcData.outPutDay;
+                carData.price = srcData.price;
+                this.shopDatas.push(carData);
+                GameConfig.event.dispatch("addcar", carData);
+            }
+        };
         User.prototype.initShopData = function () {
             this.shopDatas = [];
             var scale = [0.8, 0.85, 0.9, 0.95, 1];
-            this.shopDatas.push(new Games.ShopData(1, 10, 0.4, 30, 1, 12, 1));
-            this.shopDatas.push(new Games.ShopData(2, 100, 4, 40, 1.3, 160, 10));
-            this.shopDatas.push(new Games.ShopData(3, 500, 16, 50, 1.5, 800, 50));
-            this.shopDatas.push(new Games.ShopData(4, 1000, 25, 70, 1.7, 1750, 100));
-            this.shopDatas.push(new Games.ShopData(5, 5000, 100, 90, 2, 9000, 150));
+            var data = new Games.ShopData();
+            data.name = "微矿";
+            data.price = 10;
+            data.dayOutPut = 0.4;
+            data.outPutDay = 30;
+            data.total = 12;
+            data.index = 1;
+            data.sl = 1;
+            this.typeKeys.add(data.name, data);
+            data = new Games.ShopData();
+            data.name = "小矿";
+            data.price = 100;
+            data.dayOutPut = 4;
+            data.outPutDay = 40;
+            data.total = 160;
+            data.index = 2;
+            data.sl = 10;
+            this.typeKeys.add(data.name, data);
+            data = new Games.ShopData();
+            data.name = "中矿";
+            data.price = 500;
+            data.dayOutPut = 16;
+            data.outPutDay = 50;
+            data.total = 800;
+            data.index = 3;
+            data.sl = 50;
+            this.typeKeys.add(data.name, data);
+            data = new Games.ShopData();
+            data.name = "大矿";
+            data.price = 1000;
+            data.dayOutPut = 25;
+            data.outPutDay = 70;
+            data.total = 1750;
+            data.index = 4;
+            data.sl = 100;
+            this.typeKeys.add(data.name, data);
+            data = new Games.ShopData();
+            data.name = "超矿";
+            data.price = 5000;
+            data.dayOutPut = 100;
+            data.outPutDay = 90;
+            data.total = 9000;
+            data.index = 5;
+            data.sl = 500;
+            this.typeKeys.add(data.name, data);
         };
         Object.defineProperty(User.prototype, "isMaxCar", {
             get: function () {
@@ -69087,6 +69306,10 @@ var Games;
             Laya.SoundManager.soundVolume = soundVolume;
             Laya.SoundManager.playSound(url, loops);
         };
+        SoundManager.playMusic = function () {
+            Laya.SoundManager.musicVolume = Games.SoundKey.bg_vol;
+            Laya.SoundManager.playMusic(Games.SoundKey.bg, 0);
+        };
         SoundManager.stopSound = function (url) {
             Laya.SoundManager.stopSound(url);
         };
@@ -69107,6 +69330,12 @@ var Games;
         SoundKey.car_move = "sounds/car_move.mp3";
         SoundKey.click_npc = "sounds/click_npc.mp3";
         SoundKey.wa_guangsu = "sounds/wa_guangsu.mp3";
+        SoundKey.bg = "sounds/bg.mp3";
+        SoundKey.bag_com_vol = 1;
+        SoundKey.car_move_vol = 0.1;
+        SoundKey.click_npc_vol = 0.4;
+        SoundKey.wa_guangsu_vol = 1;
+        SoundKey.bg_vol = 0.3;
         return SoundKey;
     }());
     Games.SoundKey = SoundKey;
@@ -69118,22 +69347,30 @@ var Games;
 var Games;
 (function (Games) {
     var ShopData = /** @class */ (function () {
-        function ShopData(index, price, daily, schedule, scale, total, suanli) {
+        function ShopData(index, name, price, scale, dayOutPut, outPutDay, total, sl) {
+            if (index === void 0) { index = 1; }
+            if (name === void 0) { name = ""; }
+            if (price === void 0) { price = 1; }
+            if (scale === void 0) { scale = 1; }
+            if (dayOutPut === void 0) { dayOutPut = 1; }
+            if (outPutDay === void 0) { outPutDay = 1; }
+            if (total === void 0) { total = 1; }
+            if (sl === void 0) { sl = 1; }
+            this.index = 1;
             this.isBuyed = false;
             this.price = 10; //价格
-            this.daily = 10; //日产
+            this.dayOutPut = 10; //日产
             this.total = 10; //总量
-            this.suanli = 10; //算力
-            this.schedule = 10; //周期
-            this.index = 1;
+            this.sl = 10; //算力
+            this.outPutDay = 10; //周期
             this.scale = 1;
             this.index = index;
             this.price = price;
             this.scale = scale;
-            this.schedule = schedule;
-            this.daily = daily;
+            this.dayOutPut = dayOutPut;
             this.total = total;
-            this.suanli = suanli;
+            this.outPutDay = outPutDay;
+            this.sl = sl;
         }
         return ShopData;
     }());
@@ -69154,6 +69391,179 @@ var Games;
     Games.Road = Road;
 })(Games || (Games = {}));
 //# sourceMappingURL=Road.js.map
+/**
+* name
+*/
+var Games;
+(function (Games) {
+    var HttpRequest = Laya.HttpRequest;
+    var NetWork = /** @class */ (function () {
+        function NetWork() {
+            this.buyIndexs = [];
+            this.httpRequest = new HttpRequest();
+            this.httpRequest.on(Laya.Event.PROGRESS, this, this.onHttpRequestProgress);
+            this.httpRequest.on(Laya.Event.COMPLETE, this, this.onHttpRequestComplete);
+            this.httpRequest.on(Laya.Event.ERROR, this, this.onHttpRequestError);
+        }
+        NetWork.prototype.onHttpRequestError = function (e) {
+        };
+        NetWork.prototype.onHttpRequestComplete = function (e) {
+            console.log(this.httpRequest.data);
+            switch (this.httpRequest.url) {
+                case NetWork.KJ_LIST_URL:
+                    if (this.httpRequest.data["status"] == 0) {
+                        user.gameWindow.showTip(this.httpRequest.data.msg);
+                    }
+                    else {
+                        user.formatCarDatas(this.httpRequest.data);
+                    }
+                    break;
+                case NetWork.KJ_BUY_URL + "?kj_id=1":
+                case NetWork.KJ_BUY_URL + "?kj_id=2":
+                case NetWork.KJ_BUY_URL + "?kj_id=3":
+                case NetWork.KJ_BUY_URL + "?kj_id=4":
+                case NetWork.KJ_BUY_URL + "?kj_id=5":
+                    var index = this.buyIndexs.pop();
+                    if (this.httpRequest.data.status == 1) {
+                        user.addData(user.typeKeys.getValues()[index - 1]);
+                    }
+                    user.gameWindow.showTip(this.httpRequest.data.msg);
+                    // user.formatCarDatas(this.httpRequest.data);
+                    break;
+                default:
+                    break;
+            }
+            GameConfig.event.dispatch(this.httpRequest.url, this.httpRequest.data);
+        };
+        NetWork.prototype.onHttpRequestProgress = function (e) {
+        };
+        Object.defineProperty(NetWork, "getInstance", {
+            get: function () {
+                if (this._instance == null) {
+                    this._instance = new NetWork();
+                }
+                return this._instance;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         *
+         * @param url
+         * @param data
+         * @param method
+         * @param responseType
+         * @param headers
+         */
+        NetWork.prototype.sendUrl = function (url, data, method, responseType, headers) {
+            this.httpRequest.send(url, data, method, responseType, headers);
+        };
+        NetWork.prototype.sendBuy = function (index) {
+            this.buyIndexs.push(index);
+            this.httpRequest.send(NetWork.KJ_BUY_URL + "?kj_id=" + index, {}, "post", "json", this.getHeaders());
+        };
+        NetWork.prototype.getList = function () {
+            this.httpRequest.send(NetWork.KJ_LIST_URL, {}, "post", "json", ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization, "Content-Type", "application/json"]);
+        };
+        NetWork.prototype.getHeaders = function () {
+            return ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization, "Content-Type", "application/json"];
+        };
+        NetWork.URL = "";
+        NetWork.APP_ID = "7269076665587380";
+        NetWork.APP_KEY = "4c8rz2Zouw5bmAO3RDzL5yu1hUDBPKpS";
+        NetWork.KJ_LIST_URL = "https://www.okhehe.com/api/member/kj/lists";
+        NetWork.KJ_BUY_URL = "https://www.okhehe.com/api/member/kj/buy";
+        return NetWork;
+    }());
+    Games.NetWork = NetWork;
+})(Games || (Games = {}));
+//# sourceMappingURL=NetWork.js.map
+/*
+* name;
+*/
+var GameEventKey = /** @class */ (function () {
+    function GameEventKey() {
+    }
+    return GameEventKey;
+}());
+//# sourceMappingURL=GameEventKey.js.map
+var GameConfig = /** @class */ (function () {
+    function GameConfig() {
+    }
+    // 游戏--事件
+    GameConfig.event = new Emitter();
+    return GameConfig;
+}());
+//# sourceMappingURL=Game.js.map
+var Dictionary = /** @class */ (function () {
+    function Dictionary() {
+        this.dict = {};
+        this._count = 0;
+    }
+    Object.defineProperty(Dictionary.prototype, "count", {
+        get: function () {
+            return this._count;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Dictionary.prototype.add = function (key, val) {
+        if (this.hasKey(key) === false) {
+            this._count++;
+        }
+        this.dict[key] = val;
+    };
+    Dictionary.prototype.set = function (key, val) {
+        if (this.hasKey(key) === false) {
+            this._count++;
+        }
+        this.dict[key] = val;
+    };
+    Dictionary.prototype.remove = function (key) {
+        if (this.hasKey(key)) {
+            this._count--;
+        }
+        // this.dict[key] = undefined;
+        delete this.dict[key];
+    };
+    Dictionary.prototype.hasKey = function (key) {
+        return this.dict[key] != undefined;
+    };
+    Dictionary.prototype.getValue = function (key) {
+        return this.dict[key];
+    };
+    Dictionary.prototype.getValueOrDefault = function (key, _default) {
+        if (this.hasKey(key)) {
+            return this.getValue(key);
+        }
+        else {
+            return _default;
+        }
+    };
+    Dictionary.prototype.__getDict = function () {
+        return this.dict;
+    };
+    Dictionary.prototype.getValues = function () {
+        var list = [];
+        for (var key in this.dict) {
+            list.push(this.dict[key]);
+        }
+        return list;
+    };
+    Dictionary.prototype.getKeys = function () {
+        var list = [];
+        for (var key in this.dict) {
+            list.push(key);
+        }
+        return list;
+    };
+    Dictionary.prototype.clear = function () {
+        this.dict = {};
+        this._count = 0;
+    };
+    return Dictionary;
+}());
+//# sourceMappingURL=Dictionary.js.map
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -69175,11 +69585,12 @@ var Games;
     var Point = Laya.Point;
     var Car = /** @class */ (function (_super) {
         __extends(Car, _super);
-        function Car(aniIndex) {
+        function Car(data) {
             var _this = _super.call(this) || this;
+            _this.data = data;
             _this.nextPosList = [];
             _this.stayPosList = [];
-            _this.onLoaded(aniIndex);
+            _this.onLoaded(_this.data.index);
             return _this;
             // Laya.loader.load("res/atlas/anima/che1.atlas", Handler.create(this, this.onLoaded));
         }
@@ -69247,7 +69658,7 @@ var Games;
                     // effect.scale(0.2, 0.2);
                     delay = 5000;
                     Games.SoundManager.stopSound(Games.SoundKey.car_move);
-                    Games.SoundManager.playSound(Games.SoundKey.wa_guangsu, null, 1);
+                    Games.SoundManager.playSound(Games.SoundKey.wa_guangsu, null, 1, Games.SoundKey.wa_guangsu_vol);
                 }
                 setTimeout(function () {
                     if (effect_1) {
@@ -69259,7 +69670,7 @@ var Games;
                         //
                         _this.startTween();
                     }));
-                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, 0.1);
+                    Games.SoundManager.playSound(Games.SoundKey.car_move, null, 0, Games.SoundKey.car_move_vol);
                     // Laya.SoundManager.playSound(SoundKey.car_move, 0,null,);
                 }, delay);
             }
@@ -69277,7 +69688,7 @@ var Games;
                 // user.curBagCarNum++;
                 // this.updateEffectSmoke();
                 this.anima.stop();
-                Games.SoundManager.playSound(Games.SoundKey.bag_com, true);
+                Games.SoundManager.playSound(Games.SoundKey.bag_com, true, null, Games.SoundKey.bag_com_vol);
                 setTimeout(function () {
                     user.curBagCarNum--;
                     // this.updateEffectSmoke();
@@ -69534,24 +69945,24 @@ var Main;
             this.m_gold3 = (this.getChildAt(3));
             this.m_gold4 = (this.getChildAt(4));
             this.m_gold5 = (this.getChildAt(5));
-            this.m_starContainer = (this.getChildAt(6));
-            this.m_container = (this.getChildAt(7));
-            this.m_n3 = (this.getChildAt(8));
-            this.m_npcPos = (this.getChildAt(9));
-            this.m_coin = (this.getChildAt(10));
-            this.m_startPos1 = (this.getChildAt(11));
-            this.m_startPos2 = (this.getChildAt(12));
-            this.m_startPos3 = (this.getChildAt(13));
-            this.m_startPos4 = (this.getChildAt(14));
-            this.m_startPos5 = (this.getChildAt(15));
-            this.m_startPos6 = (this.getChildAt(16));
-            this.m_startPos7 = (this.getChildAt(17));
-            this.m_startPos8 = (this.getChildAt(18));
-            this.m_startPos9 = (this.getChildAt(19));
-            this.m_startPos10 = (this.getChildAt(20));
-            this.m_startPos11 = (this.getChildAt(21));
-            this.m_startPos12 = (this.getChildAt(22));
-            this.m_startPos13 = (this.getChildAt(23));
+            this.m_endPos1 = (this.getChildAt(6));
+            this.m_endPos2 = (this.getChildAt(7));
+            this.m_endPos3 = (this.getChildAt(8));
+            this.m_endPos4 = (this.getChildAt(9));
+            this.m_endPos5 = (this.getChildAt(10));
+            this.m_endPos6 = (this.getChildAt(11));
+            this.m_endPos7 = (this.getChildAt(12));
+            this.m_endPos8 = (this.getChildAt(13));
+            this.m_endPos9 = (this.getChildAt(14));
+            this.m_endPos10 = (this.getChildAt(15));
+            this.m_endPos11 = (this.getChildAt(16));
+            this.m_endPos12 = (this.getChildAt(17));
+            this.m_endPos13 = (this.getChildAt(18));
+            this.m_n96 = (this.getChildAt(19));
+            this.m_starContainer = (this.getChildAt(20));
+            this.m_container = (this.getChildAt(21));
+            this.m_npcPos = (this.getChildAt(22));
+            this.m_coin = (this.getChildAt(23));
             this.m_pos1 = (this.getChildAt(24));
             this.m_pos2 = (this.getChildAt(25));
             this.m_pos3 = (this.getChildAt(26));
@@ -69565,21 +69976,23 @@ var Main;
             this.m_pos11 = (this.getChildAt(34));
             this.m_pos12 = (this.getChildAt(35));
             this.m_pos13 = (this.getChildAt(36));
-            this.m_endPos1 = (this.getChildAt(37));
-            this.m_endPos2 = (this.getChildAt(38));
-            this.m_endPos3 = (this.getChildAt(39));
-            this.m_endPos4 = (this.getChildAt(40));
-            this.m_endPos5 = (this.getChildAt(41));
-            this.m_endPos6 = (this.getChildAt(42));
-            this.m_endPos7 = (this.getChildAt(43));
-            this.m_endPos8 = (this.getChildAt(44));
-            this.m_endPos9 = (this.getChildAt(45));
-            this.m_endPos10 = (this.getChildAt(46));
-            this.m_endPos11 = (this.getChildAt(47));
-            this.m_endPos12 = (this.getChildAt(48));
-            this.m_endPos13 = (this.getChildAt(49));
-            this.m_n66 = (this.getChildAt(50));
+            this.m_n3 = (this.getChildAt(37));
+            this.m_startPos1 = (this.getChildAt(38));
+            this.m_startPos2 = (this.getChildAt(39));
+            this.m_startPos3 = (this.getChildAt(40));
+            this.m_startPos4 = (this.getChildAt(41));
+            this.m_startPos5 = (this.getChildAt(42));
+            this.m_startPos6 = (this.getChildAt(43));
+            this.m_startPos7 = (this.getChildAt(44));
+            this.m_startPos8 = (this.getChildAt(45));
+            this.m_startPos9 = (this.getChildAt(46));
+            this.m_startPos10 = (this.getChildAt(47));
+            this.m_startPos11 = (this.getChildAt(48));
+            this.m_startPos12 = (this.getChildAt(49));
+            this.m_startPos13 = (this.getChildAt(50));
             this.m_n93 = (this.getChildAt(51));
+            this.m_n94 = (this.getChildAt(52));
+            this.m_n95 = (this.getChildAt(53));
         };
         UI_GameUI.URL = "ui://43jwvuthgcz40";
         return UI_GameUI;
@@ -69627,6 +70040,8 @@ var Games;
         GameWindow.prototype.constructFromXML = function (xml) {
             var _this = this;
             _super.prototype.constructFromXML.call(this, xml);
+            GameConfig.event.add(Games.NetWork.KJ_LIST_URL, this.onUpdateList, this);
+            GameConfig.event.add("addcar", this.onAddCar, this);
             user.gameWindow = this;
             this.tips = [];
             for (var index = 1; index <= 13; index++) {
@@ -69672,7 +70087,36 @@ var Games;
                 _this.startFlash();
             }, 5000);
             this.startFlash();
+            this.m_coin.visible = false;
             this.m_c_visible_mapyan.selectedIndex = 1;
+            this.onUpdateList();
+            Games.SoundManager.playMusic();
+            Games.NetWork.getInstance.getList();
+        };
+        GameWindow.prototype.onUpdateList = function () {
+            if (user.shopDatas) {
+                this.datas = user.shopDatas.concat();
+                this.startCarMove();
+            }
+        };
+        GameWindow.prototype.onAddCar = function (data) {
+            if (this.datas.length > 0) {
+                this.datas.push(data);
+            }
+            else {
+                this.datas.push(data);
+                this.startCarMove();
+            }
+        };
+        GameWindow.prototype.startCarMove = function () {
+            var _this = this;
+            if (this.datas.length > 0) {
+                var data = this.datas.pop();
+                this.createCar(data);
+                setTimeout(function () {
+                    _this.startCarMove();
+                }, 1000);
+            }
         };
         GameWindow.prototype.startFlash = function () {
             for (var index = 0; index < 3; index++) {
@@ -69703,7 +70147,7 @@ var Games;
         GameWindow.prototype.onClickNpc = function () {
             // this.m_c_show_shop.selectedIndex = 1;
             Games.SoundManager.stopSound(Games.SoundKey.click_npc);
-            Games.SoundManager.playSound(Games.SoundKey.click_npc);
+            Games.SoundManager.playSound(Games.SoundKey.click_npc, false, 1, Games.SoundKey.click_npc_vol);
             this.shopWindow.show();
         };
         GameWindow.prototype.showTip = function (msg) {
@@ -69729,7 +70173,8 @@ var Games;
             get: function () {
                 if (this._shopWindow == null) {
                     this._shopWindow = Games.ShopWindow.createInstance();
-                    fairygui.GRoot.inst.addChild(this._shopWindow);
+                    user.root.addChild(this._shopWindow);
+                    this._shopWindow.setSize(user.root.width, user.root.height);
                 }
                 return this._shopWindow;
             },
@@ -69741,28 +70186,16 @@ var Games;
         };
         //显示
         GameWindow.prototype.show = function () {
-            if (this.curCars.length < 5) {
-                // this.createCar();
-                // setTimeout(() =>
-                // {
-                // this.createCar()
-                // this.createCar()
-                // this.createCar()
-                // }, 6000);
-                // }
-            }
         };
         //创建一个
-        GameWindow.prototype.createCar = function (index) {
+        GameWindow.prototype.createCar = function (data) {
             var car;
             if (this.pools.length > 0) {
                 car = this.pools.pop();
             }
             else {
-                car = new Games.Car(index);
+                car = new Games.Car(data);
                 car.setParent(this);
-                user.gold += user.shopDatas[index - 1].daily;
-                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 this.curCars.push(car);
                 car.initPosList(this.curCars.length);
@@ -69852,9 +70285,8 @@ var Games;
             else {
                 user.shopWindow.m_sure.show(function () {
                     _this.shopData.isBuyed = true;
-                    user.gameWindow.showTip("购买成功");
                     user.shopWindow.hide();
-                    user.gameWindow.createCar(_this.shopData.index);
+                    Games.NetWork.getInstance.sendBuy(_this.shopData.index);
                 });
             }
         };
@@ -69873,10 +70305,10 @@ var Games;
                 this.m_c_state.selectedIndex = 0;
             }
             this.m_c_icon.selectedIndex = shopData.index - 1;
-            this.m_sec.text = "周期：" + shopData.schedule + "天";
+            this.m_sec.text = "周期：" + shopData.outPutDay + "天";
             this.m_priece.text = "价格：" + shopData.price;
-            this.m_num.text = "算力：" + shopData.suanli;
-            this.m_daily.text = "日产属性：" + shopData.daily;
+            this.m_num.text = "算力：" + shopData.sl;
+            this.m_daily.text = "日产：" + shopData.dayOutPut;
         };
         return ShopItem;
     }(Main.UI_ShopItem));
@@ -69945,14 +70377,14 @@ var Games;
         ShopPanel.prototype.constructFromXML = function (xml) {
             _super.prototype.constructFromXML.call(this, xml);
             this.m_list.itemRenderer = Handler.create(this, this.updateShopItem, null, false);
+            this.m_list.numItems = user.typeKeys.getValues().length;
         };
         ShopPanel.prototype.updateShopItem = function (index, item) {
-            item.updateView(user.shopDatas[index]);
+            item.updateView(user.typeKeys.getValues()[index]);
         };
         ShopPanel.prototype.show = function (shopWindow) {
             this.shopWindow = shopWindow;
             this.m_close.onClick(this, this.onClickCloseBtn);
-            this.m_list.numItems = user.shopDatas.length;
         };
         ShopPanel.prototype.onClickCloseBtn = function () {
             this.hide();
@@ -70410,9 +70842,9 @@ var Games;
             this.loadText.autoSize = true;
             Laya.stage.addChild(this.loadText);
             // //
-            Laya.stage.scaleMode = laya.display.Stage.SCALE_SHOWALL;
+            Laya.stage.scaleMode = laya.display.Stage.SCALE_FIXED_AUTO;
             Laya.stage.alignH = "center";
-            Laya.stage.alignV = "center";
+            Laya.stage.alignV = "top";
             Laya.stage.bgColor = "#000000";
             // Laya.stage.screenMode = laya.display.Stage.SCREEN_VERTICAL;
             Laya.loader.load([
@@ -70435,10 +70867,6 @@ var Games;
                 { url: "res/Main.bin", type: Laya.Loader.BUFFER },
                 { url: "res/Main@atlas0.png", type: Laya.Loader.IMAGE },
                 { url: "res/Main@atlas0_1.png", type: Laya.Loader.IMAGE },
-                // { url: "sound/Main@p3jo5a.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo5b.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo58.mp3", type: Laya.Loader.SOUND },
-                // { url: "res/Main@p3jo59.mp3", type: Laya.Loader.SOUND },
                 { url: "res/atlas/anima/che1.atlas" },
                 { url: "res/atlas/anima/che2.atlas" },
                 { url: "res/atlas/anima/che3.atlas" },
@@ -70472,7 +70900,8 @@ var Games;
                 fairygui.UIPackage.addPackage("res/Main");
                 //
                 var uiMain = Games.GameWindow.createInstance();
-                fairygui.GRoot.inst.addChild(uiMain);
+                user.root.addChild(uiMain);
+                uiMain.setSize(user.root.width, user.root.height);
                 uiMain.show();
             }
         };
@@ -70483,7 +70912,16 @@ var Games;
         return GameMain;
     }());
     Games.GameMain = GameMain;
-    new GameMain();
 })(Games || (Games = {}));
+//获得参数的方法
+var request = {
+    QueryString: function (val) {
+        var uri = window.location.search;
+        var re = new RegExp("" + val + "=([^&?]*)", "ig");
+        return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+    }
+};
 var user = new Games.User();
+new Games.GameMain();
+user.authorization = request.QueryString("authorization") || "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIiLCJhdWQiOiIiLCJpYXQiOjE1NDA1NjYxNjgsIm5iZiI6MTU0MDU2NjE2OCwiZXhwIjoxNTQwNTczMzY4LCJ1aWQiOjIsInVzZXJuYW1lIjoiMTM0MzA2NTI1MjUiLCJlbmNyeXB0IjoiT2hoRXUxIiwibG9naW5fa2V5IjoicVJ4OWNaT1VWVmk5aTF1MXpQd1Z1MkJJc3dGQjlYc3oifQ.aYNoj_d-Oe9sHxifeO1H0tzdBhf9QmlBxf9h1dRoynU";
 //# sourceMappingURL=GameMain.js.map

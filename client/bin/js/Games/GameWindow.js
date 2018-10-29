@@ -1,8 +1,16 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Games;
 (function (Games) {
     var Dirction;
@@ -17,7 +25,7 @@ var Games;
         Dirction[Dirction["Right_Down"] = 7] = "Right_Down";
     })(Dirction = Games.Dirction || (Games.Dirction = {}));
     var Point = Laya.Point;
-    var GameWindow = (function (_super) {
+    var GameWindow = /** @class */ (function (_super) {
         __extends(GameWindow, _super);
         function GameWindow() {
             var _this = _super.call(this) || this;
@@ -30,6 +38,8 @@ var Games;
         GameWindow.prototype.constructFromXML = function (xml) {
             var _this = this;
             _super.prototype.constructFromXML.call(this, xml);
+            GameConfig.event.add(Games.NetWork.KJ_LIST_URL, this.onUpdateList, this);
+            GameConfig.event.add("addcar", this.onAddCar, this);
             user.gameWindow = this;
             this.tips = [];
             for (var index = 1; index <= 13; index++) {
@@ -75,7 +85,36 @@ var Games;
                 _this.startFlash();
             }, 5000);
             this.startFlash();
+            this.m_coin.visible = false;
             this.m_c_visible_mapyan.selectedIndex = 1;
+            this.onUpdateList();
+            Games.SoundManager.playMusic();
+            Games.NetWork.getInstance.getList();
+        };
+        GameWindow.prototype.onUpdateList = function () {
+            if (user.shopDatas) {
+                this.datas = user.shopDatas.concat();
+                this.startCarMove();
+            }
+        };
+        GameWindow.prototype.onAddCar = function (data) {
+            if (this.datas.length > 0) {
+                this.datas.push(data);
+            }
+            else {
+                this.datas.push(data);
+                this.startCarMove();
+            }
+        };
+        GameWindow.prototype.startCarMove = function () {
+            var _this = this;
+            if (this.datas.length > 0) {
+                var data = this.datas.pop();
+                this.createCar(data);
+                setTimeout(function () {
+                    _this.startCarMove();
+                }, 1000);
+            }
         };
         GameWindow.prototype.startFlash = function () {
             for (var index = 0; index < 3; index++) {
@@ -106,7 +145,7 @@ var Games;
         GameWindow.prototype.onClickNpc = function () {
             // this.m_c_show_shop.selectedIndex = 1;
             Games.SoundManager.stopSound(Games.SoundKey.click_npc);
-            Games.SoundManager.playSound(Games.SoundKey.click_npc);
+            Games.SoundManager.playSound(Games.SoundKey.click_npc, false, 1, Games.SoundKey.click_npc_vol);
             this.shopWindow.show();
         };
         GameWindow.prototype.showTip = function (msg) {
@@ -145,20 +184,16 @@ var Games;
         };
         //显示
         GameWindow.prototype.show = function () {
-            if (this.curCars.length < 5) {
-            }
         };
         //创建一个
-        GameWindow.prototype.createCar = function (index) {
+        GameWindow.prototype.createCar = function (data) {
             var car;
             if (this.pools.length > 0) {
                 car = this.pools.pop();
             }
             else {
-                car = new Games.Car(index);
+                car = new Games.Car(data);
                 car.setParent(this);
-                user.gold += user.shopDatas[index - 1].daily;
-                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 this.curCars.push(car);
                 car.initPosList(this.curCars.length);

@@ -39,6 +39,9 @@ namespace Games
         {
             super.constructFromXML(xml);
 
+            GameConfig.event.add(NetWork.KJ_LIST_URL, this.onUpdateList, this);
+            GameConfig.event.add("addcar", this.onAddCar, this);
+
             user.gameWindow = this;
             this.tips = [];
             for (var index = 1; index <= 13; index++)
@@ -95,7 +98,53 @@ namespace Games
             }, 5000);
             this.startFlash();
 
+            this.m_coin.visible = false;
+
             this.m_c_visible_mapyan.selectedIndex = 1;
+
+            this.onUpdateList();
+            SoundManager.playMusic();
+
+            Games.NetWork.getInstance.getList();
+        }
+
+        private datas: Array<ShopData>;
+
+        private onUpdateList(): void
+        {
+            if (user.shopDatas)
+            {
+                this.datas = user.shopDatas.concat();
+                this.startCarMove();
+            }
+        }
+
+        private onAddCar(data: ShopData): void
+        {
+            if (this.datas.length > 0)
+            {
+                this.datas.push(data);
+            }
+            else
+            {
+                this.datas.push(data);
+                this.startCarMove();
+            }
+        }
+
+        private startCarMove(): void
+        {
+            if (this.datas.length > 0)
+            {
+                let data = this.datas.pop();
+
+                this.createCar(data);
+
+                setTimeout(() =>
+                {
+                    this.startCarMove();
+                }, 1000);
+            }
         }
 
         private startFlash(): void
@@ -136,7 +185,7 @@ namespace Games
         {
             // this.m_c_show_shop.selectedIndex = 1;
             SoundManager.stopSound(SoundKey.click_npc);
-            SoundManager.playSound(SoundKey.click_npc);
+            SoundManager.playSound(SoundKey.click_npc, false, 1, SoundKey.click_npc_vol);
             this.shopWindow.show();
         }
 
@@ -183,22 +232,10 @@ namespace Games
         //显示
         public show(): void
         {
-            if (this.curCars.length < 5)
-            {
-                // this.createCar();
-
-                // setTimeout(() =>
-                // {
-                // this.createCar()
-                // this.createCar()
-                // this.createCar()
-                // }, 6000);
-                // }
-            }
         }
 
         //创建一个
-        public createCar(index: number): Car
+        public createCar(data: ShopData): Car
         {
             let car: Car;
             if (this.pools.length > 0)
@@ -207,10 +244,8 @@ namespace Games
             }
             else
             {
-                car = new Car(index);
+                car = new Car(data);
                 car.setParent(this);
-                user.gold += user.shopDatas[index - 1].dayOutPut;
-                this.updateGold();
                 this.m_container.displayListContainer.addChild(car);
                 this.curCars.push(car);
                 car.initPosList(this.curCars.length);

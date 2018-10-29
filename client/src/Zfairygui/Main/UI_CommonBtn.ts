@@ -20,8 +20,8 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_button = this.getControllerAt(0);
-			this.m_icon = <fairygui.GLoader><any>(this.getChildAt(0));
+			this.m_button = this.getController("button");
+			this.m_icon = <fairygui.GLoader><any>(this.getChild("icon"));
 		}
 	}
 }

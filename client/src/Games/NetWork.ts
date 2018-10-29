@@ -42,23 +42,45 @@ module Games
 
 		private onHttpRequestError(e): void
 		{
-			console.log(e);
+
 		}
 
+		private buyIndexs: Array<number> = [];
+
 		private onHttpRequestComplete(e): void
-		{
+		{/**/
 			console.log(this.httpRequest.data);
-			switch (this.httpRequest.data)
+			switch (this.httpRequest.url)
 			{
 				case NetWork.KJ_LIST_URL:
-
+					if (this.httpRequest.data["status"] == 0)
+					{
+						user.gameWindow.showTip(this.httpRequest.data.msg);
+					}
+					else
+					{
+						user.formatCarDatas(this.httpRequest.data);
+					}
+					break;
+				case NetWork.KJ_BUY_URL + "?kj_id=1":
+				case NetWork.KJ_BUY_URL + "?kj_id=2":
+				case NetWork.KJ_BUY_URL + "?kj_id=3":
+				case NetWork.KJ_BUY_URL + "?kj_id=4":
+				case NetWork.KJ_BUY_URL + "?kj_id=5":
+					let index = this.buyIndexs.pop();
+					if (this.httpRequest.data.status == 1)
+					{
+						user.addData(user.typeKeys.getValues()[index - 1]);
+					}
+					user.gameWindow.showTip(this.httpRequest.data.msg);
+					// user.formatCarDatas(this.httpRequest.data);
 					break;
 
 				default:
 					break;
 			}
 
-			Game.event.dispatch(this.httpRequest.url, this.httpRequest.data);
+			GameConfig.event.dispatch(this.httpRequest.url, this.httpRequest.data);
 		}
 
 		private onHttpRequestProgress(e): void
@@ -83,10 +105,25 @@ module Games
 		 * @param responseType 
 		 * @param headers 
 		 */
-		public sendUrl(url: string, data?: any, method?: string): void
+		public sendUrl(url: string, data?: any, method?: string, responseType?: string, headers?: Array<any>): void
 		{
-			this.httpRequest.send(url, data, "post");
-			// this.httpRequest.send('http://xkxz.zhonghao.huo.inner.layabox.com/api/getData', 'name=myname&psword=xxx', 'post', 'text');
+			this.httpRequest.send(url, data, method, responseType, headers);
+		}
+
+		public sendBuy(index: number): void
+		{
+			this.buyIndexs.push(index);
+			this.httpRequest.send(NetWork.KJ_BUY_URL + "?kj_id=" + index, {}, "post", "json", this.getHeaders());
+		}
+
+		public getList(): void
+		{
+			this.httpRequest.send(NetWork.KJ_LIST_URL, {}, "post", "json", ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization, "Content-Type", "application/json"]);
+		}
+
+		public getHeaders(): Array<string>
+		{
+			return ["appid", user.appId, "appkey", user.appKey, "authorization", user.authorization, "Content-Type", "application/json"];
 		}
 	}
 }

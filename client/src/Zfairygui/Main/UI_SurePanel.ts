@@ -22,10 +22,10 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
-			this.m_title = <fairygui.GTextField><any>(this.getChildAt(1));
-			this.m_buy = <UI_CommonBtn><any>(this.getChildAt(2));
-			this.m_close = <UI_CommonBtn><any>(this.getChildAt(3));
+			this.m_n0 = <fairygui.GImage><any>(this.getChild("n0"));
+			this.m_title = <fairygui.GTextField><any>(this.getChild("title"));
+			this.m_buy = <UI_CommonBtn><any>(this.getChild("buy"));
+			this.m_close = <UI_CommonBtn><any>(this.getChild("close"));
 		}
 	}
 }

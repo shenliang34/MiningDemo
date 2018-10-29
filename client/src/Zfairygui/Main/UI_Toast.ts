@@ -20,8 +20,8 @@ module Main {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
-			this.m_n0 = <fairygui.GImage><any>(this.getChildAt(0));
-			this.m_msg = <fairygui.GTextField><any>(this.getChildAt(1));
+			this.m_n0 = <fairygui.GImage><any>(this.getChild("n0"));
+			this.m_msg = <fairygui.GTextField><any>(this.getChild("msg"));
 		}
 	}
 }

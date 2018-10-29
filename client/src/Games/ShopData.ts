@@ -15,8 +15,15 @@ module Games
 		public outPutDay: number = 10;//周期
 
 		public scale: number = 1;
-		constructor()
+		constructor(index: number = 1, name: string = "", price: number = 1, scale: number = 1, dayOutPut: number = 1, outPutDay: number = 1, total: number = 1, sl: number = 1)
 		{
+			this.index = index;
+			this.price = price;
+			this.scale = scale;
+			this.dayOutPut = dayOutPut;
+			this.total = total;
+			this.outPutDay = outPutDay;
+			this.sl = sl;
 		}
 	}
 }
