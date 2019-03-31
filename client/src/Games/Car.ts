@@ -23,7 +23,7 @@ module Games
 			this.nextPosList = [];
 			this.stayPosList = [];
 
-			this.onLoaded(this.data.index);
+			this.onLoaded(this.data.index - 6);
 			// Laya.loader.load("res/atlas/anima/che1.atlas", Handler.create(this, this.onLoaded));
 		}
 
@@ -136,7 +136,7 @@ module Games
 			{
 				SoundManager.stopSound(SoundKey.car_move);
 				// let coin: CoinMinItem = CoinMinItem.createInstance();
-				let data = user.shopDatas[this.index - 1];
+				//let data = user.shopDatas[this.index - 1];
 				// coin.text = "+" + data.daily;
 				// user.gameWindow.addChild(coin);
 				// coin.setXY(user.gameWindow.m_startPos.x - (coin.width >> 1), user.gameWindow.m_startPos.y - 100);
